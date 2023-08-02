@@ -1,11 +1,17 @@
-import './assets/styles/main.css'
+// styles
+import '@/assets/styles/main.scss'
 
-import { createApp } from 'vue'
+// Components
 import App from './App.vue'
-import router from './router'
-import store from './store'
 
-createApp(App).use(
-  router,
-  store,
-).mount('#app')
+// Composables
+import { createApp } from 'vue'
+
+// Plugins
+import { registerPlugins } from '@/plugins'
+
+const app = createApp(App)
+
+registerPlugins(app)
+
+app.mount('#app')

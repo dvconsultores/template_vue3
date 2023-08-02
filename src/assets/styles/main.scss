@@ -1,0 +1,15 @@
+@forward "./config/default-settings";
+@forward "./config/vuetify-settings";
+@forward "./config/mixins";
+@forward "./config/custom-mixins";
+@forward "./config/personal-classes";
+@forward "./config/responsive";
+@forward "./config/variables";
+@forward "./config/fonts";
+@forward "./config/typography";
+@use "./config/mixins" as *;
+@use "./config/variables" as *;
+
+
+
+//===================================== global ======================================//
