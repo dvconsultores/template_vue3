@@ -5,6 +5,8 @@ import router from '../router'
 import store from '../store'
 import VueApexChart from './apexchart'
 import axiosConfig from './axios'
+import { firebaseApp } from '@/services/firebase-api'
+import { VueFire, VueFireAuth } from 'vuefire'
 
 export function registerPlugins (app) {
   loadFonts()
@@ -19,6 +21,14 @@ export function registerPlugins (app) {
     .use(store)
     .use(VueApexChart)
     .use(axiosConfig.VueAxios, axiosConfig.axios)
+    .use(VueFire, {
+      // imported above but could also just be created here
+      firebaseApp,
+      modules: [
+        // we will see other modules later on
+        VueFireAuth(),
+      ],
+    })
 
     // injects
     .provide('axios', app.config.globalProperties.axios)
