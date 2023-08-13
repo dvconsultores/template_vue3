@@ -1,9 +1,7 @@
-import { initializeApp } from 'firebase/app'
-// import { getFirestore } from 'firebase/firestore'
-import { getDatabase, ref } from 'firebase/database'
+import { initializeApp } from '@firebase/app'
+import { getFirestore } from '@firebase/firestore'
 
-// ... other firebase imports
-import { VueFire, VueFireAuth } from 'vuefire'
+import { VueFire, VueFireFirestoreOptionsAPI } from 'vuefire'
 
 export const firebaseApp = initializeApp({
   // project configuration
@@ -15,19 +13,17 @@ export const firebaseApp = initializeApp({
   appId: "1:673175469064:web:1c9c87db32853b12cfa5bd"
 })
 
-// used for the databas refs
-const db = getDatabase(firebaseApp)
+export const db = getFirestore(firebaseApp)
 
-// here we can export reusable database references
-export const todosRef = ref(db, 'todos')
-
+//! UNDER TESTING
 export default (app) => {
   app.use(VueFire, {
-    // imported above but could also just be created here
-    firebaseApp,
     modules: [
-      // we will see other modules later on
-      VueFireAuth(),
-    ],
+      VueFireFirestoreOptionsAPI({
+        // this would be the same behavior as VueFire v2
+        // reset: true,
+        // wait: false,
+      }),
+    ]
   })
 }
