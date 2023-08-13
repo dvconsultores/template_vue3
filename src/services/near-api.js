@@ -1,10 +1,12 @@
 import * as nearAPI from 'near-api-js'
-import Vue from 'vue'
 
-export default async function NearApi() {
+export default async (app) => {
   const
     { connect, keyStores, WalletConnection } = nearAPI,
     keyStore = new keyStores.BrowserLocalStorageKeyStore(),
+
+    appKeyPrefix = "YOUR_APP_KEY_PREFIX_HERE",
+
     config = {
       networkId: "testnet",
       keyStore, 
@@ -13,12 +15,14 @@ export default async function NearApi() {
       helperUrl: "https://helper.testnet.near.org",
       explorerUrl: "https://explorer.testnet.near.org",
     },
+
     // connect to NEAR
     near = await connect(config),
-    // create wallet connection
-    wallet = new WalletConnection(near);
 
-  Vue.prototype.$wallet = wallet
+    // create wallet connection
+    wallet = new WalletConnection(near, appKeyPrefix);
+
+  app.config.globalProperties.$wallet = wallet
 }
 
 /*   when need buy

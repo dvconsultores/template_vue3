@@ -8,27 +8,34 @@ import router from '../router'
 import store from '../store'
 import vueApexChart from './apexchart'
 import axiosConfig from './axios'
-import firebaseApi from '@/services/firebase-api'
 import vueDebounce from './vue-debounce'
 import googleMaps from './google-maps'
 import mixins from './mixinsImport'
 
+// Services
+import firebaseApi from '@/services/firebase-api'
+import nearApi from '@/services/near-api'
+
 export function registerPlugins (app) {
-  // imports
+  // Use plugins
   app
     .use(vuetify)
     .use(router)
     .use(store)
 
-  // custom imports
+  // Use services
+  firebaseApi(app)
+  nearApi(app)
+
+  // Use custom plugins
   loadFonts()
   polyfills()
   injects(app)
   directives(app)
   axiosConfig(app)
-  firebaseApi(app)
   vueApexChart(app)
   vueDebounce(app)
   googleMaps(app)
-  mixins(app)
+
+  mixins(app) // this need to be last one
 }
