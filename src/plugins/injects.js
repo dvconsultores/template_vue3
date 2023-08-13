@@ -1,6 +1,6 @@
-import { ALERT_TYPE, SCROLL_TO } from '~/plugins/dictionary';
+import { ALERT_TYPE, SCROLL_TO } from '@/plugins/dictionary';
 
-export default ({app}, inject) => {
+export default (app) => {
   // console-log =========================================================================================================//
   const log = (...msgs) => {
     msgs.forEach((msg, i) => {
@@ -8,7 +8,7 @@ export default ({app}, inject) => {
     });
   }
   // usage $log(msg)
-  inject('log', log);
+  app.provide('log', log);
 
 
   // target-tooltip =========================================================================================================//
@@ -23,7 +23,7 @@ export default ({app}, inject) => {
     $targetTooltip(target) <-- if mounted
     $targetTooltip(target, y, x) <-- if resize
   */
-  inject('targetTooltip', targetTooltip);
+  app.provide('targetTooltip', targetTooltip);
 
 
   // alerts =========================================================================================================//
@@ -36,7 +36,7 @@ export default ({app}, inject) => {
     }
   }
   // usage $alert(key, {title, desc})
-  inject('alert', alerts);
+  app.provide('alert', alerts);
 
 
   // confirmMsg =========================================================================================================//
@@ -45,7 +45,7 @@ export default ({app}, inject) => {
       GenerateMsg(fSuccess, fCancel, fOpen, title, desc, color);
   }
   // usage $alert(key, {title, desc})
-  inject('confirmMsg', confirmMsg);
+  app.provide('confirmMsg', confirmMsg);
 
 
   // scroll-to =========================================================================================================//
@@ -60,7 +60,7 @@ export default ({app}, inject) => {
     }
   }
   // usage $scrollTo(id)
-  inject('scrollTo', scrollTo);
+  app.provide('scrollTo', scrollTo);
 
 
   // load-cursor =========================================================================================================//
@@ -76,7 +76,7 @@ export default ({app}, inject) => {
     }
   }
   // usage $loadCursor(boolean)
-  inject('loadCursor', loadCursor);
+  app.provide('loadCursor', loadCursor);
 
 
   // equalData =========================================================================================================//
@@ -89,7 +89,7 @@ export default ({app}, inject) => {
     return toData
   }
   // usage $equalData(to, from)
-  inject('equalData', equalData);
+  app.provide('equalData', equalData);
 
 
   // formData =========================================================================================================//
@@ -112,5 +112,5 @@ export default ({app}, inject) => {
     return formData
   }
   // usage $formData(form)
-  inject('formData', formData);
+  app.provide('formData', formData);
 }

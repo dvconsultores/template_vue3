@@ -1,35 +1,30 @@
 // Plugins
 import { loadFonts } from './webfontloader'
+import polyfills from './polyfills'
+import injects from './injects'
+import directives from './directives'
 import vuetify from './vuetify'
 import router from '../router'
 import store from '../store'
-import VueApexChart from './apexchart'
+import vueApexChart from './apexchart'
 import axiosConfig from './axios'
-import { firebaseApp } from '@/services/firebase-api'
-import { VueFire, VueFireAuth } from 'vuefire'
+import firebaseApi from '@/services/firebase-api'
+import vueDebounce from './vue-debounce'
 
 export function registerPlugins (app) {
-  loadFonts()
-
+  // imports
   app
-    // components
-    .component('VueApexChart', VueApexChart)
-
-    // uses
     .use(vuetify)
     .use(router)
     .use(store)
-    .use(VueApexChart)
-    .use(axiosConfig.VueAxios, axiosConfig.axios)
-    .use(VueFire, {
-      // imported above but could also just be created here
-      firebaseApp,
-      modules: [
-        // we will see other modules later on
-        VueFireAuth(),
-      ],
-    })
 
-    // injects
-    .provide('axios', app.config.globalProperties.axios)
+  // custom imports
+  loadFonts()
+  polyfills()
+  injects(app)
+  directives(app)
+  axiosConfig(app)
+  firebaseApi(app)
+  vueApexChart(app)
+  vueDebounce(app)
 }
