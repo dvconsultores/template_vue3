@@ -11,6 +11,7 @@ import axiosConfig from './axios'
 import vueDebounce from './vue-debounce'
 import googleMaps from './google-maps'
 import mixins from './mixinsImport'
+import VueHtml2Canvas from 'vue-html2canvas'
 
 // Services
 import firebaseApi from '@/services/firebase-api'
@@ -22,6 +23,7 @@ export function registerPlugins (app) {
     .use(vuetify)
     .use(router)
     .use(store)
+    .use(VueHtml2Canvas)
 
   // Use services
   firebaseApi(app)

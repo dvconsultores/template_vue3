@@ -21,7 +21,5 @@ export default {
       test: ref("asd"),
     }
   },
-  mounted() {
-  }
 }
 </script>
