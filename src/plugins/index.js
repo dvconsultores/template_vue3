@@ -10,6 +10,8 @@ import vueApexChart from './apexchart'
 import axiosConfig from './axios'
 import firebaseApi from '@/services/firebase-api'
 import vueDebounce from './vue-debounce'
+import googleMaps from './google-maps'
+import mixins from './mixinsImport'
 
 export function registerPlugins (app) {
   // imports
@@ -27,4 +29,6 @@ export function registerPlugins (app) {
   firebaseApi(app)
   vueApexChart(app)
   vueDebounce(app)
+  googleMaps(app)
+  mixins(app)
 }

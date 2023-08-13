@@ -3,20 +3,25 @@
     <HelloWorld />
 
     <h1 v-font:3,5="16">test</h1>
-    <h2>{{data.test}}</h2>
+    <h2>{{test}}</h2>
   </div>
 </template>
 
-<script setup>
-  import HelloWorld from '@/components/HelloWorld.vue'
-  import { createApp, onMounted, ref } from 'vue'
-  
-  createApp({ name: "HomePage" })
+<script>
+import HelloWorld from '@/components/HelloWorld.vue'
+import { ref } from 'vue'
 
-  const data = ref({
-    test: "",
-  })
-
-  onMounted(() => {
-  })
+export default {
+  name: "HomePage",
+  components: {
+    HelloWorld
+  },
+  setup() {
+    return {
+      test: ref("asd"),
+    }
+  },
+  mounted() {
+  }
+}
 </script>

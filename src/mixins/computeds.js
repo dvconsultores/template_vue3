@@ -14,9 +14,6 @@ export default {
     }
   },
   computed: {
-    baseDomainUrl() {
-      return this.$axios.defaults.baseURL
-    },
     isLogged() {
       return this.$wallet.isSignedIn()
     },
@@ -26,10 +23,13 @@ export default {
     appIsLaunched() {
       return localStorage.getItem("appIsLaunched")
     },
+    baseDomainPath() {
+      return this.axios.defaults.baseURL
+    },
   },
   methods: {
     basePath(url, prefix = "/app") {
-      return this.localePath(`${this.appIsLaunched ? prefix : ''}${url}`)
+      return `${this.appIsLaunched ? prefix : ''}${url}`
     },
   }
 }
