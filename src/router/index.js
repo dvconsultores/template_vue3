@@ -10,9 +10,7 @@ const routes = [
   {
     path: '/',
     component: () => import('@/layouts/DefaultLayout.vue'),
-    meta: {
-      requiresAuth: true
-    },
+    meta: { requiresAuth: true },
     children: [
       {
         path: '',
