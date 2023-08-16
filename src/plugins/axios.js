@@ -4,7 +4,7 @@ import { useStorage } from 'vue3-storage-secure'
 
 export default (app) => {
   // set default baseURL
-  axios.defaults.baseURL = import.meta.env.VITE_API_URL || '';
+  axios.defaults.baseURL = process.env.API_URL || 'DEFAULT_DOMAIN_API';
 
   // set default header
   const tokenAuth = useStorage().getStorageSync("tokenAuth")
