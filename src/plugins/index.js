@@ -9,6 +9,7 @@ import vuetify from './vuetify'
 import router from '../router'
 import store from '../store'
 import { loadFonts } from './webfontloader'
+import vueI18n from './vue-i18n'
 import vueApexChart from './apexchart'
 import googleMaps from './google-maps'
 import VueHtml2Canvas from 'vue-html2canvas'
@@ -41,6 +42,7 @@ export function registerPlugins (app) {
 
   // Use custom plugins
   loadFonts()
+  vueI18n(app)
   vueApexChart(app)
   googleMaps(app)
 

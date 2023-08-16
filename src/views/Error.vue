@@ -1,8 +1,8 @@
 <template>
   <section id="error-page" class="center divcol">
-    <h1 class="p bold">{{error.title}}</h1>
-    <span class="bold">{{error.description}}</span>
-    <v-btn :to="error.to" class="bold">{{error.button}}</v-btn>
+    <h1 class="p bold">{{error.title ?? $t("error.title")}}</h1>
+    <span class="bold">{{error.description ?? $t("error.description")}}</span>
+    <v-btn :to="error.to" class="bold">{{error.button ?? $t("error.button")}}</v-btn>
   </section>
 </template>
 
@@ -16,9 +16,9 @@ export default {
     error: {
       type: Object,
       default: {
-        title: "Error",
-        description: "Page not found",
-        button: "Go home",
+        title: undefined,
+        description: undefined,
+        button: undefined,
         to: "/",
       },
     },
