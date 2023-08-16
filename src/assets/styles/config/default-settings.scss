@@ -155,10 +155,8 @@ body {background: var(--bg-ap)}
 //---------------------------------------------------------------------------------------------//
 img:not(.not_html, .not, .v-img__img) {
   --bg: none;
-  --w: initial;
   --max-w: none;
   --min-w: none;
-  --h: initial;
   --max-h: none;
   --min-h: none;
   --ar: initial;
@@ -171,10 +169,8 @@ img:not(.not_html, .not, .v-img__img) {
   --of: initial;
   
   background: var(--bg) !important;
-  width: var(--w);
   max-width: var(--max-w);
   min-width: var(--min-w);
-  height: var(--h);
   max-height: var(--max-h);
   min-height: var(--min-h);
   aspect-ratio: var(--ar);
@@ -186,5 +182,3 @@ img:not(.not_html, .not, .v-img__img) {
   object-fit: var(--of);
   filter: var(--f);
 }
-
-

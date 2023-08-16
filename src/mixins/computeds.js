@@ -26,6 +26,9 @@ export default {
     baseDomainPath() {
       return this.axios.defaults.baseURL
     },
+    getTheme() {
+      return localStorage.getItem('theme')
+    }
   },
   methods: {
     basePath(url, prefix = "/app") {

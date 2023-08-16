@@ -12,6 +12,7 @@ import { loadFonts } from './webfontloader'
 import vueApexChart from './apexchart'
 import googleMaps from './google-maps'
 import VueHtml2Canvas from 'vue-html2canvas'
+
 import mixins from './mixinsImport'
 
 // Services

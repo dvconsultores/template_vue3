@@ -5,15 +5,18 @@
 .v-tab, .v-input .v-input__slot *, .v-data-footer__select, .v-data-footer__pagination, .v-data-footer__icons::before):not(.not_typography, .not) {
   font-weight: var(--fw) !important;
 }
-#__layout > * {font-family: var(--font1)} // default font family
+
+// default font family
+#app > * {font-family: var(--font1)}
 * {font-family: inherit}
+
 button:not(.not_typography, .not) {
   &::first-letter, & ::first-letter {
     text-transform: var(--tt-first, uppercase)
   }
 }
 h1:not(.not_typography, .not) {
-  font-family: var(--font2);
+  font-family: var(--font1);
   font-weight: var(--fw, 400) !important;
   font-size: var(--fs, max(16px, 4em));
   letter-spacing: var(--ls, 0.625em);

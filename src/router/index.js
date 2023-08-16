@@ -3,7 +3,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import { useStorage } from "vue3-storage-secure";
 import { nextTick } from 'vue'
 
-const DEFAULT_TITLE = 'Vue3 detextre4';
+const DEFAULT_TITLE = 'Apolo Pay';
 
 const routes = [
   // ? Default routes
@@ -29,8 +29,14 @@ const routes = [
       {
         path: '/login',
         name: 'Login',
-        component: () => import('@/views/login.vue'),
+        component: () => import('@/views/Login.vue'),
         meta: { title: `Login - ${DEFAULT_TITLE}` }
+      },
+      {
+        path: "/:pathMatch(.*)*",
+        name: "Error",
+        component: () => import('@/views/Error.vue'),
+        meta: { title: `Error - ${DEFAULT_TITLE}` }
       },
     ],
   },

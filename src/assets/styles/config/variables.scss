@@ -1,5 +1,4 @@
 @use "mixins.scss" as *;
-// @import '~vuetify/src/styles/styles.sass';
 
 //========== Variables ==========//
 :root {
@@ -8,60 +7,8 @@
   --warning: #FFC260;
   --success: #3CD4A0;
   --c: var(--clr);
-  //------- themes -------//
-  &.light {
-    // default color
-    --primary: #EAE823;
-    --secondary: #000000;
-    --accent: rgb(176, 114, 0);
-    --active: var(--primary);
-    --clr-gradient: linear-gradient(to right top,#356D74,#2A505C,#21394A,#1A293D,#172035,#161D33,#161E34,#192539,#1E3143,#244251,#2D5862,#387378,#449492,#53B9B1,#63E2D2);
-    --bg-ap: #4ddaeb;
-    --clr: #000000;
-    --clr-hover: hsl(288 90% 10%);
-    --clr-scroll: var(--primary);
-    --clr-bg-scroll: var(--secondary);
-    // cards
-    --clr-card: #FFFFFF;
-    // buttons
-    --clr-btn: var(--primary);
-    /*--clr-btn-pressed: #AD0FD5;
-    --clr-btn-inactive: #AD0FD5;*/
-    --clr-text-btn: #000000;
-    // badge
-    --clr-badge: var(--primary);
-    --clr-text-badge: #000000;
-    // line
-    --clr-line: hsl(59, 83%, 53%, .5);
-  }
-  &.dark {
-    // default color
-    --primary: #EAE823;
-    --secondary: #000000;
-    --accent: rgb(176, 114, 0);
-    --active: var(--primary);
-    --clr-gradient: linear-gradient(to right top,#356D74,#2A505C,#21394A,#1A293D,#172035,#161D33,#161E34,#192539,#1E3143,#244251,#2D5862,#387378,#449492,#53B9B1,#63E2D2);
-    --bg-ap: #000000;
-    --clr: #FFFFFF;
-    --clr-hover: hsl(288 90% 90%);
-    --clr-scroll: var(--primary);
-    --clr-bg-scroll: var(--secondary);
-    // cards
-    --clr-card: #191919;
-    // buttons
-    --clr-btn: var(--primary);
-    /*--clr-btn-pressed: #AD0FD5;
-    --clr-btn-inactive: #AD0FD5;*/
-    --clr-text-btn: #FFFFFF;
-    // badge
-    --clr-badge: var(--primary);
-    --clr-text-badge: #000000;
-    // line
-    --clr-line: hsl(59, 83%, 53%, .5);
-  }
   //------- fonts -------//
-  --font1: 'Lekton', sans-serif;
-  --font2: 'League Gothic', sans-serif;
+  --font1: 'Ubuntu', sans-serif;
   --fw: initial;
   //------- sizes -------//
   --resizer: clamp(12px, 1vw, 16px);
@@ -79,6 +26,59 @@
   --sombra-btn: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
+//------- themes -------//
+[data-theme=light] {
+  // default color
+  --primary: #e15517;
+  --secondary: #02a6d0;
+  --accent: #162c59;
+  --active: var(--primary);
+  --clr-gradient: linear-gradient(to right top,#356D74,#2A505C,#21394A,#1A293D,#172035,#161D33,#161E34,#192539,#1E3143,#244251,#2D5862,#387378,#449492,#53B9B1,#63E2D2);
+  --bg-ap: #f9fafa;
+  --clr: #000000;
+  --clr-hover: hsl(288 90% 10%);
+  --clr-scroll: var(--primary);
+  --clr-bg-scroll: var(--secondary);
+  // cards
+  --clr-card: #FFFFFF;
+  // buttons
+  --clr-btn: var(--primary);
+  /*--clr-btn-pressed: #AD0FD5;
+  --clr-btn-inactive: #AD0FD5;*/
+  --clr-text-btn: #000000;
+  // badge
+  --clr-badge: var(--primary);
+  --clr-text-badge: #000000;
+  // line
+  --clr-line: hsl(59, 83%, 53%, .5);
+}
+
+[data-theme=dark] {
+  // default color
+  --primary: #e15517;
+  --secondary: #162c59;
+  --accent: #162c59;
+  --active: var(--primary);
+  --clr-gradient: linear-gradient(to right top,#356D74,#2A505C,#21394A,#1A293D,#172035,#161D33,#161E34,#192539,#1E3143,#244251,#2D5862,#387378,#449492,#53B9B1,#63E2D2);
+  --bg-ap: #000000;
+  --clr: #FFFFFF;
+  --clr-hover: hsl(288 90% 90%);
+  --clr-scroll: var(--primary);
+  --clr-bg-scroll: var(--secondary);
+  // cards
+  --clr-card: #191919;
+  // buttons
+  --clr-btn: var(--primary);
+  /*--clr-btn-pressed: #AD0FD5;
+  --clr-btn-inactive: #AD0FD5;*/
+  --clr-text-btn: #FFFFFF;
+  // badge
+  --clr-badge: var(--primary);
+  --clr-text-badge: #000000;
+  // line
+  --clr-line: hsl(59, 83%, 53%, .5);
+}
+
 //========== Sidebar ==========//
 $drawer-items-padding:                     32px !default;
 $navigation-drawer-mini-variant-width:     96px!important;
@@ -89,9 +89,9 @@ $content-padding:                           24px;
 $sombra-filter: drop-shadow(0px 4px 1px rgba(0, 0, 0, 0.3));
 
 //========== Colors ==========//
-$primary:           #EAE823;
-$secondary:         #000000;
-$accent:            #b07200;
+$primary:           #e15517;
+$secondary:         #02a6d0;
+$accent:            #162c59;
 $error:             #ff4081;
 $warning:           #FFC260;
 $success:           #3CD4A0;
