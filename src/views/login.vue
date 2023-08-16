@@ -26,9 +26,9 @@
 
       <div class="space">
         <v-checkbox
+          v-model="rememberMe"
           label="Recuérdame"
           density="compact"
-          color="var(--primary)"
           hide-details
           style="flex-grow: 0"
         ></v-checkbox>
@@ -61,6 +61,7 @@ export default {
   setup() {
     return {
       isLoading: ref(false),
+      rememberMe: ref(false),
       showPassword: ref(false),
       dataLogin: ref({
         email: undefined,
@@ -75,8 +76,16 @@ export default {
     }
   },
   created() {
-    if (this.$storage.getStorageSync("tokenAuth"))
-      this.$storage.clearStorageSync("tokenAuth")
+    const storage = this.$storage
+
+    if (storage.getStorageSync("tokenAuth"))
+      storage.removeStorageSync("tokenAuth")
+
+    const rmEmail = storage.getStorageSync('rmEmail')
+    if (rmEmail) {
+      this.dataLogin.email = rmEmail
+      this.rememberMe = true
+    }
   },
   methods: {
     async handleLogin() {
@@ -84,18 +93,24 @@ export default {
       if (!validate.valid)
         return alert("verifica que los campos sean correctos");
 
-      isLoading.value = true
+      this.isLoading = true
 
       const {data} = await this.axios.post("signin/", this.dataLogin)
-        .catch(error => console.error(error))
+        .catch(error => {
+          console.error(error)
+          this.isLoading = false
+        })
 
-      isLoading.value = false
-
-      if (data.check_login)
+      if (data.check_login) {
+        this.isLoading = false
         return alert("verification required")
+      }
 
-      this.$storage.setStorageSync("tokenAuth", data.token)
-      this.$storage.setStorageSync("uid", data.id)
+      if (!this.rememberMe) this.$storage.removeStorageSync('rmEmail')
+      else this.$storage.setStorageSync('rmEmail', this.dataLogin.email)
+
+      this.$storage.setStorageSync('tokenAuth', data.token)
+      this.$storage.setStorageSync('uid', data.id)
       this.$router.push('/')
     },
     handleRegister() {
