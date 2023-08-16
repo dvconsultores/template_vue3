@@ -4,7 +4,6 @@
 //---------------------------------------------------------------------------------------------//
 
 #auth-layout {
-  isolation: isolate;
   // overflow: hidden;
 
   //- responsive font size -//
@@ -25,69 +24,5 @@
   }
   & .without {
     padding-block: calc(var(--h-navbar) + 20px) 0 !important
-  }
-
-
-  // just decoration
-  [class*="decoration"] {
-    position: absolute;
-    z-index: -1;
-  }
-
-  .decoration {
-    &-1 {
-      width: 300px;
-      right: 0px;
-      bottom: 5px;
-      @include media(max, 600px) {display: none;}
-    }
-
-    &-2 {
-      width: 250px;
-      left: 0;
-      top: 0;
-      @include media(max, 600px) {display: none;}
-    }
-  }
-
-  [class*="decoration2"] {
-    left: 0;
-    right: 0;
-    margin: auto;
-  }
-  .decoration2 {
-    &-1 {
-      width: 40px;
-      rotate: 180deg;
-      transform: translateX(-250px);
-      top: 50px;
-  
-      @include media(max, 600px) {display: none;}
-    }
-
-    &-2 {
-      width: 60px;
-      rotate: 180deg;
-      transform: translateX(-350px);
-      bottom: 390px;
-  
-      @include media(max, 1005px) {display: none;}
-    }
-
-    &-3 {
-      width: 60px;
-      rotate: 180deg;
-      bottom: 10px;
-  
-      @include media(max, 600px) {display: none;}
-    }
-
-    &-4 {
-      width: 60px;
-      transform: translateX(-350px);
-      bottom: 250px;
-  
-      @include media(max, 600px) {display: none;}
-    }
   }
 }

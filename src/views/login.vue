@@ -30,6 +30,7 @@
           label="Recuérdame"
           density="compact"
           hide-details
+          color="rgb(var(--v-theme-primary))"
           style="flex-grow: 0"
         ></v-checkbox>
 
@@ -37,14 +38,14 @@
       </div>
 
       <v-btn
-        class="my-2" color="var(--primary)"
+        class="my-2 bg-primary"
         :disabled="isLoading"
         :loading="isLoading"
         @click="handleLogin()"
       >Iniciar Sesión</v-btn>
       
       <v-btn
-        color="var(--secondary)"
+        class="bg-secondary"
         @click="handleRegister()"
       >Registrarse</v-btn>
     </v-form>
@@ -90,8 +91,7 @@ export default {
   methods: {
     async handleLogin() {
       const validate = await this.$refs.form.validate()
-      if (!validate.valid)
-        return alert("verifica que los campos sean correctos");
+      if (!validate.valid) return
 
       this.isLoading = true
 

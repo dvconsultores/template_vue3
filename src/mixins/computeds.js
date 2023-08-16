@@ -27,7 +27,10 @@ export default {
       return this.axios.defaults.baseURL
     },
     getTheme() {
-      return localStorage.getItem('theme')
+      return this.$vuetify.theme.name
+    },
+    getThemeSrc() {
+      return `@/assets/sources/themes/${this.$vuetify.theme.name}/`
     }
   },
   methods: {

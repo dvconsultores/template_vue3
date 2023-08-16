@@ -32,10 +32,6 @@ const store = createStore({
       // GET USER DATA TO SET DATA
       commit("setData", {});
     },
-    setTheme({commit}, theme = 'light') {
-      document.documentElement.setAttribute('data-theme', theme);
-      localStorage.setItem('theme', theme)
-    }
   },
   getters: {
     pagination: () => ({items, currentPage, itemsPerPage, search, filterA}) => {

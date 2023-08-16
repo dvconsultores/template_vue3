@@ -2,7 +2,7 @@
   <div id="home">
     <v-container class="fill-height">
       <v-responsive class="align-center text-center fill-height pb-4">
-        <v-img height="300" src="@/assets/sources/logos/logo.svg" />
+        <v-img height="200" src="@/assets/sources/logos/logo.png" />
 
         <div class="text-body-2 font-weight-light mb-n1">Welcome to</div>
 
@@ -10,9 +10,10 @@
 
         <h2 v-font:3,5em="16" class="py-5">{{name}}</h2>
 
-        <v-btn color="var(--primary)" rounded @click="$router.push('/login')">
-          <span style="color: #fff">log out</span>
-        </v-btn>
+        <v-btn
+          class="bg-primary text-white"
+          rounded @click="$router.push('/login')"
+        >log out</v-btn>
       </v-responsive>
     </v-container>
   </div>

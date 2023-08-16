@@ -7,8 +7,8 @@
   border: none !important;
   &::before {display: none !important}
   &.active {
-    background-color: hsl(0, 84%, 58%, .6) !important;
-    color: var(--clr-text-btn) !important;
-    & * {color: var(--clr-text-btn) !important}
+    background-color: rgba(238, 58, 58, 0.6) !important;
+    color: #fff !important;
+    & * {color: #fff !important}
   }
 }

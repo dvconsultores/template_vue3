@@ -1,4 +1,4 @@
-@use "mixins.scss" as *;
+@use "Mixins.scss" as *;
 //---------------------------------------------------------------------------------------------//
 //======================================= custom mixins =======================================//
 //---------------------------------------------------------------------------------------------//
@@ -49,7 +49,7 @@
 
 //- buttons -//
 @mixin btn() {
-  --bg: var(--primary);
+  --bg: rgb(var(--v-theme-primary));
   --c: #000000;
   --b: initial;
   --p: .5em 1em;
@@ -110,8 +110,8 @@
   --h: initial;
   --max-h: none;
   --min-h: none;
-  --bg: var(--clr-card);
-  --c: var(--clr);
+  --bg: rgb(var(--v-theme-surface));
+  --c: rgb(var(--v-theme-foreground));
   --b: initial;
   --p: 1em;
   --br: 30px;

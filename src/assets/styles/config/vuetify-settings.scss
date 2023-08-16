@@ -1,9 +1,17 @@
-@use "variables" as *;
+@use "Variables" as *;
+
 
 .v-btn {
   text-transform: var(--tt, none);
   * {text-transform: var(--tt, none);}
+
+  .v-progress-circular {
+    width: 60% !important;
+    height: 60% !important;
+  }
 }
+
+
 
 // .v-application {
 //   .page-title {
@@ -209,10 +217,10 @@
 
 // //- defaut tabs -//
 // .v-tabs:not(.not_vuetify, .not) {
-//   --bg: var(--primary);
+//   --bg: $primary;
 //   --c: var(--clr);
 //   --bg-active: hsl(59, 83%, 53%, .13);
-//   --c-active: var(--primary);
+//   --c-active: $primary;
 //   --b: .8px solid rgba(#707070, .1);
 //   --br: 5px;
 //   --w: max-content;
@@ -349,7 +357,7 @@
   
 //   // &.v-btn--disabled {
 //   //   opacity: .5;
-//   //   background-color: var(--bg, var(--primary)) !important;
+//   //   background-color: var(--bg, rgb(var(--v-theme-primary))) !important;
 //   // }
 // }
 

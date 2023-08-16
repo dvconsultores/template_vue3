@@ -1,5 +1,5 @@
-@use "variables" as *;
-@use "mixins" as *;
+@use "Variables" as *;
+@use "Mixins" as *;
 
 :root {
   //======= rem =======//
@@ -388,7 +388,7 @@
   margin: var(--m, auto) !important;
 }
 .anchorlinea {
-  --t: 0; --b: 0; --l: 0; --r: 0; --m: auto; --w-line: 100%; --h-line: 1px; --bg-line: var(--clr-line);
+  --t: 0; --b: 0; --l: 0; --r: 0; --m: auto; --w-line: 100%; --h-line: 1px;
 
   position: relative;
   &::after {
@@ -401,11 +401,11 @@
     margin: var(--m, auto) !important;
     width: var(--w-line) !important;
     height: var(--h-line) !important;
-    background-color: var(--bg-line) !important;
+    background-color: var(--bg-line, #000) !important;
   }
 }
 .anchorlineb {
-  --t: 0; --b: 0; --l: 0; --r: 0; --m: auto; --w-line: 100%; --h-line: 1px; --bg-line: var(--clr-line);
+  --t: 0; --b: 0; --l: 0; --r: 0; --m: auto; --w-line: 100%; --h-line: 1px;
 
   position: relative;
   &::before {
@@ -418,7 +418,7 @@
     margin: var(--m, auto) !important;
     width: var(--w-line) !important;
     height: var(--h-line) !important;
-    background-color: var(--bg-line) !important;
+    background-color: var(--bg-line, #000) !important;
   }
 }
 .resizer {font-size: var(--resizer) !important}
@@ -773,7 +773,7 @@
     margin: var(--m, auto) !important;
   }
   .anchorlinea {
-    --t: 0; --b: 0; --l: 0; --r: 0; --m: auto; --w-line: 100%; --h-line: 1px; --bg-line: var(--clr-line);
+    --t: 0; --b: 0; --l: 0; --r: 0; --m: auto; --w-line: 100%; --h-line: 1px;
   
     position: relative;
     &::after {
@@ -786,11 +786,11 @@
       margin: var(--m, auto) !important;
       width: var(--w-line) !important;
       height: var(--h-line) !important;
-      background-color: var(--bg-line) !important;
+      background-color: var(--bg-line, #000) !important;
     }
   }
   .anchorlineb {
-    --t: 0; --b: 0; --l: 0; --r: 0; --m: auto; --w-line: 100%; --h-line: 1px; --bg-line: var(--clr-line);
+    --t: 0; --b: 0; --l: 0; --r: 0; --m: auto; --w-line: 100%; --h-line: 1px;
   
     position: relative;
     &::before {
@@ -803,7 +803,7 @@
       margin: var(--m, auto) !important;
       width: var(--w-line) !important;
       height: var(--h-line) !important;
-      background-color: var(--bg-line) !important;
+      background-color: var(--bg-line, #000) !important;
     }
   }
   .resizermobile {font-size: var(--resizer) !important}
@@ -894,7 +894,7 @@
     margin: auto !important;
     width: 100% !important;
     height: 100% !important;
-    background-color: var(--clr-hover) !important;
+    background-color: var(--line, red) !important;
     opacity: 0 !important;
     border-radius: 50px !important;
     transform: scaleX(0.2) !important;
@@ -927,7 +927,7 @@
     height: $split-thickness !important;
     border-radius: $split-thickness !important;
     margin-top: calc((4px / 2) * -1) !important;
-    background: $clr-hover !important;
+    background: var(--line, red) !important;
     transform: scale(0) !important;
     transition: transform .8s cubic-bezier(.16,1.08,.38,.98) !important;
     z-index: 1 !important;
@@ -937,7 +937,7 @@
     display: block !important;
     position: absolute !important;
     overflow: hidden !important;
-    color: var(--clr);
+    color: var(--mask, #000);
     top: 0 !important;
     height: $split-position !important;
     transition: all .8s cubic-bezier(.16,1.08,.38,.98) !important;
