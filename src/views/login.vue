@@ -95,22 +95,14 @@ export default {
 
       this.isLoading = true
 
-      const {data} = await this.axios.post("signin/", this.dataLogin)
-        .catch(error => {
-          console.error(error)
-          this.isLoading = false
-        })
-
-      if (data.check_login) {
-        this.isLoading = false
-        return alert("verification required")
-      }
+      const data = await new Promise((resolve) => {
+        setTimeout(() => resolve("authorizationToken"), 2000);
+      })
 
       if (!this.rememberMe) this.$storage.removeStorageSync('rmEmail')
       else this.$storage.setStorageSync('rmEmail', this.dataLogin.email)
 
-      this.$storage.setStorageSync('tokenAuth', data.token)
-      this.$storage.setStorageSync('uid', data.id)
+      this.$storage.setStorageSync('tokenAuth', data)
       this.$router.push('/')
     },
     handleRegister() {
