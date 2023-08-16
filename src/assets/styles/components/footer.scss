@@ -30,13 +30,13 @@
         &:last-child {width: 100%;grid-column: span 4}
       }
     }
-    p {font-weight: 400;color: $clr-text-btn !important}
+    p {font-weight: 400;color: $text-btn !important}
     label:not(.v-label) {
       font-weight: 700;
-      color: $clr-text-btn !important;
+      color: $text-btn !important;
       text-transform: uppercase;
     }
-    a {color: $clr-text-btn !important;font-weight: 400}
-    span:not(.v-btn__content) {color: $clr-text-btn !important;font-weight: 300}
+    a {color: $text-btn !important;font-weight: 400}
+    span:not(.v-btn__content) {color: $text-btn !important;font-weight: 300}
   }
 }

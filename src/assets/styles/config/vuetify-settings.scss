@@ -540,9 +540,9 @@
 //   .v-list-item {
 //     min-height: 3em;
 //     &--active {
-//       background: $clr-btn !important;
+//       background: $btn !important;
       
-//       :is(.v-list-item__title, span) {color: $clr-text-btn !important}
+//       :is(.v-list-item__title, span) {color: $text-btn !important}
 //     }
 //   }
 // }
