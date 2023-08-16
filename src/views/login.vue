@@ -36,14 +36,6 @@
         <a class="tend">¿Olvidaste tu contraseña?</a>
       </div>
 
-      <VueRecaptcha
-        :sitekey="siteKey"
-        :load-recaptcha-script="true"
-        style="margin-inline: auto"
-        @verify="recaptchaVerified"
-        @error="recaptchaError"
-      ></VueRecaptcha>
-
       <v-btn
         class="my-2" color="var(--primary)"
         :disabled="isLoading"
@@ -62,14 +54,10 @@
 <script>
 import '@/assets/styles/views/Login.scss'
 import { ref } from 'vue'
-import VueRecaptcha from 'vue3-recaptcha2';
 
 export default {
   name: "LoginPage",
   layout: "auth-layout",
-  components: {
-	  VueRecaptcha
-  },
   setup() {
     return {
       isLoading: ref(false),
@@ -84,7 +72,6 @@ export default {
             || 'La contraseña debe tener al menos una mayúscula, una minúscula, un número y un caracter especial',
         ]
       },
-      siteKey: "6LcUojQnAAAAAIphCUdGC1W0mgsLGKwqZ03a1I-_",
     }
   },
   created() {
@@ -113,10 +100,6 @@ export default {
     },
     handleRegister() {
       this.$router.push('/register')
-    },
-    recaptchaVerified(response) {
-    },
-    recaptchaError(reason) {
     },
   }
 }
