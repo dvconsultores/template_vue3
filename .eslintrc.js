@@ -8,6 +8,6 @@ module.exports = {
     'eslint:recommended',
   ],
   rules: {
-    "no-undef-init": false
+    "no-undef-init": off
   }
 }
