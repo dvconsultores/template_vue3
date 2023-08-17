@@ -25,11 +25,17 @@
 
   &-slot {
     font-size: 18px;
+    --fw: 500;
     width: calc(var(--height) / 1.1);
     border-radius: 15px;
     border: 1.5px solid $primary;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
     text-align: center;
+
+    &.is-complete {
+      background-color: rgba(var(--v-theme-secondary), .75);
+      color: #fff;
+    }
 
     & + span {display: none;}
   }
