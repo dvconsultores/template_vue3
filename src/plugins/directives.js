@@ -1,41 +1,22 @@
+import { toCssVal } from "./functions";
+
 export default (app) => {
   /// font directive
   app.directive('font', {
     created(el, binding) {
-      const value = () => {
-        const hasNumber = binding.arg?.match(/\d+/g)
-        const hasLetter = binding.arg?.match(/[a-zA-Z]/)
+      const { value, arg, modifiers } = binding
 
-        if (hasNumber) {
-          const number = binding.arg.split(",").join(".")
-          return `max(${binding.value}px, ${hasLetter ? number : `${number}em`})`
-        }
-        return `${binding.value}${binding.arg || 'px'}`
+      const styles = (item) => {
+        item.style.fontFamily = arg
+        item.style.fontSize = toCssVal(value)
       }
 
-      if (binding.modifiers.all) {
-        for (const element of el.children)
-          element.style.fontSize = value();
-        if (binding.modifiers.in) return;
+      if (modifiers.all) {
+        for (const element of el.children) styles(element)
+        if (modifiers.in) return
       }
 
-      el.style.fontSize = value()
-    },
-  })
-
-
-  /// family directive
-  app.directive('family', {
-    created(el, binding) {
-      const value = () => binding.value
-
-      if (binding.modifiers.all) {
-        for (const element of el.children)
-          element.style.fontFamily = value();
-        if (binding.modifiers.in) return;
-      }
-
-      el.style.fontFamily = value()
+      styles(el)
     },
   })
 
@@ -43,28 +24,50 @@ export default (app) => {
   /// flex directive
   app.directive('flex', {
     created(el, binding) {
+      const { value, modifiers } = binding
+
       el.style.display = 'flex'
 
-      if (binding.modifiers.column) el.style.flexDirection = 'column'
-      if (binding.modifiers.align) el.style.alignItems = 'center'
-      if (binding.modifiers.alignStart) el.style.alignItems = 'flex-start'
-      if (binding.modifiers.alignEnd) el.style.alignItems = 'flex-end'
-      if (binding.modifiers.justify) el.style.justifyContent = 'center'
-      if (binding.modifiers.justifyStart) el.style.justifyContent = 'flex-start'
-      if (binding.modifiers.justifyEnd) el.style.justifyContent = 'flex-end'
-      if (binding.modifiers.center) {
+      if (value.column) el.style.flexDirection = 'column'
+      if (value.align) el.style.alignItems = 'center'
+      if (value.alignStart) el.style.alignItems = 'flex-start'
+      if (value.alignEnd) el.style.alignItems = 'flex-end'
+      if (value.justify) el.style.justifyContent = 'center'
+      if (value.justifyStart) el.style.justifyContent = 'flex-start'
+      if (value.justifyEnd) el.style.justifyContent = 'flex-end'
+      if (value.center) {
         el.style.alignItems = 'center'
         el.style.justifyContent = 'center'
       }
-      if (binding.modifiers.space) el.style.justifyContent = 'space-between'
-      if (binding.modifiers.spaceA) el.style.justifyContent = 'space-around'
-      if (binding.modifiers.spaceE) el.style.justifyContent = 'space-evenly'
-      if (binding.modifiers.wrap) el.style.flexWrap = 'wrap'
-      if (binding.value)
-        if (binding.modifiers.self)
-          el.style.flex = binding.value
-        else for (const item of el.children)
-          item.style.flex = binding.value
+      if (value.space) el.style.justifyContent = 'space-between'
+      if (value.spaceA) el.style.justifyContent = 'space-around'
+      if (value.spaceE) el.style.justifyContent = 'space-evenly'
+      if (value.wrap) el.style.flexWrap = 'wrap'
+
+      if (value.flex)
+        if (modifiers.in)
+          for (const item of el.children) item.style.flex = value.flexx
+        else
+          item.style.flex = value.flex
     },
+  })
+
+  app.directive('size', {
+    created(el, binding) {
+      const { value : val } = binding
+      const value = Object.fromEntries(
+        Object.entries(val).map(e => {
+          const [key, val] = e
+          return [key, toCssVal(val)]
+        })
+      )
+
+      if (value.w) el.style.width = value.w
+      if (value.maxw) el.style.maxWidth = value.maxw
+      if (value.minw) el.style.minWidth = value.minw
+      if (value.h) el.style.height = value.h
+      if (value.maxh) el.style.maxHeight = value.maxh
+      if (value.minh) el.style.minHeight = value.minh
+    }
   })
 }
