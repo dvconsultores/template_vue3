@@ -15,7 +15,7 @@ import vueApexChart from './apexchart'
 import googleMaps from './google-maps'
 import VueHtml2Canvas from 'vue-html2canvas'
 import VueRecaptcha from 'vue3-recaptcha2'
-import VOtpInput from "vue3-otp-input";
+import vOtpInput from './v-otp-input'
 
 import mixins from './mixins-import'
 
@@ -38,7 +38,6 @@ export function registerPlugins (app) {
     .use(router)
     .use(store)
     .use(VueHtml2Canvas)
-    .component('VOtpInput', VOtpInput)
     .component('VueRecaptcha', VueRecaptcha)
 
   // Use services
@@ -49,6 +48,7 @@ export function registerPlugins (app) {
   loadFonts()
   vueI18n(app)
   vueToastification(app)
+  vOtpInput(app)
   vueApexChart(app)
   googleMaps(app)
 
