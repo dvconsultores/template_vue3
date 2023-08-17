@@ -17,6 +17,10 @@
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
     text-align: center;
 
+    &:focus {
+      outline: 1.5px solid $primary;
+    }
+
     &.is-complete {
       background-color: rgba(var(--v-theme-secondary), .75);
       color: #fff;
