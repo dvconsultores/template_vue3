@@ -9,6 +9,7 @@ import vuetify from './vuetify'
 import router from '../router'
 import store from '../store'
 import { loadFonts } from './webfontloader'
+import vueToastification from './vue-toastification'
 import vueI18n from './vue-i18n'
 import vueApexChart from './apexchart'
 import googleMaps from './google-maps'
@@ -47,6 +48,7 @@ export function registerPlugins (app) {
   // Use custom plugins
   loadFonts()
   vueI18n(app)
+  vueToastification(app)
   vueApexChart(app)
   googleMaps(app)
 

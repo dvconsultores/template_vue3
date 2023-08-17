@@ -55,6 +55,8 @@
 <script>
 import '@/assets/styles/views/login.scss'
 import { ref } from 'vue'
+import { useToast } from "vue-toastification";
+const toast = useToast();
 
 export default {
   name: "LoginPage",
@@ -103,6 +105,8 @@ export default {
       else this.$storage.setStorageSync('rmEmail', this.dataLogin.email)
 
       this.$storage.setStorageSync('tokenAuth', data)
+
+      toast.success('Sign in successful!')
       this.$router.push('/')
     },
     handleRegister() {
