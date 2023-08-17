@@ -13,6 +13,8 @@ import vueI18n from './vue-i18n'
 import vueApexChart from './apexchart'
 import googleMaps from './google-maps'
 import VueHtml2Canvas from 'vue-html2canvas'
+import VueRecaptcha from 'vue3-recaptcha2'
+import VOtpInput from "vue3-otp-input";
 
 import mixins from './mixinsImport'
 
@@ -35,6 +37,8 @@ export function registerPlugins (app) {
     .use(router)
     .use(store)
     .use(VueHtml2Canvas)
+    .component('VOtpInput', VOtpInput)
+    .component('VueRecaptcha', VueRecaptcha)
 
   // Use services
   firebaseApi(app)
@@ -46,5 +50,5 @@ export function registerPlugins (app) {
   vueApexChart(app)
   googleMaps(app)
 
-  mixins(app) // this need to be last one
+  mixins(app) // this should be the last one
 }

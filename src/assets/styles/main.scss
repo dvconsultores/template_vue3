@@ -13,3 +13,23 @@
 
 
 //===================================== global ======================================//
+
+
+.otp-input {
+  --height: 60px;
+
+  height: var(--height);
+  justify-content: space-between;
+
+  > * {align-items: initial !important;}
+
+  &-slot {
+    width: calc(var(--height) / 1.1);
+    border-radius: 15px;
+    border: 1.5px solid $primary;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+    text-align: center;
+
+    & + span {display: none;}
+  }
+}
