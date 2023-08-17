@@ -22,6 +22,7 @@ h1:not(.not_typography, .not) {
   letter-spacing: var(--ls, 0.625em);
   line-height: var(--lh, 1);
   text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  margin-bottom: var(--mb, 16px);
 }
 h2:not(.not_typography, .not) {
   font-family: var(--font1);
@@ -29,6 +30,7 @@ h2:not(.not_typography, .not) {
   font-size: var(--fs, max(16px, 3em));
   letter-spacing: var(--ls, 0.03em);
   line-height: var(--lh, 1);
+  margin-bottom: var(--mb, 16px);
 }
 h3:not(.not_typography, .not) {
   font-family: var(--font1);
@@ -36,6 +38,7 @@ h3:not(.not_typography, .not) {
   font-size: var(--fs, max(16px, 2.5em));
   letter-spacing: var(--ls, 0.03em);
   line-height: var(--lh, 1);
+  margin-bottom: var(--mb, 16px);
 }
 h4:not(.not_typography, .not) {
   font-family: var(--font1);
@@ -43,6 +46,7 @@ h4:not(.not_typography, .not) {
   font-size: var(--fs, max(16px, 2em));
   letter-spacing: var(--ls, 0.03em);
   line-height: var(--lh, 1);
+  margin-bottom: var(--mb, 16px);
 }
 h5:not(.not_typography, .not) {
   font-family: var(--font1);
@@ -50,6 +54,7 @@ h5:not(.not_typography, .not) {
   font-size: var(--fs, max(16px, 1.5em));
   letter-spacing: var(--ls, 0.03em);
   line-height: var(--lh, 1);
+  margin-bottom: var(--mb, 16px);
 }
 h6:not(.not_typography, .not) {
   font-family: var(--font1);
@@ -57,12 +62,14 @@ h6:not(.not_typography, .not) {
   font-size: var(--fs, max(16px, 1em));
   letter-spacing: var(--ls, 0.03em);
   line-height: var(--lh, 1);
+  margin-bottom: var(--mb, 16px);
 }
 p:not(.not_typography, .not) {
   font-family: var(--font1);
   font-weight: var(--fw, 400) !important;
   font-size: var(--fs, max(16px, 1em));
   line-height: var(--lh, 1.1);
+  margin-bottom: var(--mb, 16px);
 }
 a:not(.not_typography, .not) {
   text-decoration: var(--under, none);
