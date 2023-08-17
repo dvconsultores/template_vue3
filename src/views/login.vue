@@ -1,6 +1,6 @@
 <template>
   <section id="login">
-    <img src="@/assets/sources/logos/logo.png" style="width: min(450px, 100%)">
+    <img src="@/assets/sources/logos/logo.svg" style="width: min(450px, 100%)">
 
     <v-form ref="form">
       <v-text-field
@@ -53,7 +53,7 @@
 </template>
 
 <script>
-import '@/assets/styles/views/Login.scss'
+import '@/assets/styles/views/login.scss'
 import { ref } from 'vue'
 
 export default {

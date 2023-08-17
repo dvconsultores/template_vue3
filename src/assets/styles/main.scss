@@ -16,7 +16,7 @@
 
 
 .otp-input {
-  --height: 60px;
+  --height: 70px;
 
   height: var(--height);
   justify-content: space-between;
@@ -24,6 +24,7 @@
   > * {align-items: initial !important;}
 
   &-slot {
+    font-size: 18px;
     width: calc(var(--height) / 1.1);
     border-radius: 15px;
     border: 1.5px solid $primary;

@@ -16,7 +16,7 @@ import VueHtml2Canvas from 'vue-html2canvas'
 import VueRecaptcha from 'vue3-recaptcha2'
 import VOtpInput from "vue3-otp-input";
 
-import mixins from './mixinsImport'
+import mixins from './mixins-import'
 
 // Services
 import firebaseApi from '@/services/firebase-api'

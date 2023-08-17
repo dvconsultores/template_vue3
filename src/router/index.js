@@ -9,13 +9,13 @@ const routes = [
   // ? Default routes
   {
     path: '/',
-    component: () => import('@/layouts/DefaultLayout.vue'),
+    component: () => import('@/layouts/default-layout.vue'),
     meta: { requiresAuth: true },
     children: [
       {
         path: '',
         name: 'Home',
-        component: () => import('@/views/Home.vue'),
+        component: () => import('@/views/home.vue'),
         meta: { title: `Home - ${DEFAULT_TITLE}` }
       },
     ],
@@ -24,18 +24,18 @@ const routes = [
   // ? Authentication routes
   {
     path: '/auth',
-    component: () => import('@/layouts/AuthLayout.vue'),
+    component: () => import('@/layouts/auth-layout.vue'),
     children: [
       {
         path: '/login',
         name: 'Login',
-        component: () => import('@/views/Login.vue'),
+        component: () => import('@/views/login.vue'),
         meta: { title: `Login - ${DEFAULT_TITLE}` }
       },
       {
         path: "/:pathMatch(.*)*",
         name: "Error",
-        component: () => import('@/views/Error.vue'),
+        component: () => import('@/views/error.vue'),
         meta: { title: `Error - ${DEFAULT_TITLE}` }
       },
     ],

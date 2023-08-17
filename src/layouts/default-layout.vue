@@ -7,7 +7,7 @@
 </template>
 
 <script setup>
-import '@/assets/styles/layouts/DefaultLayout.scss'
+import '@/assets/styles/layouts/default-layout.scss'
 import { createApp } from 'vue'
 
 createApp({

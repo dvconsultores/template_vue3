@@ -2,7 +2,7 @@
 import '@/assets/styles/Main.scss'
 
 // Components
-import App from './App.vue'
+import App from './app.vue'
 
 // Composables
 import { createApp } from 'vue'

@@ -1,8 +1,8 @@
 <template>
-  <div id="home">
-    <v-container class="fill-height">
-      <v-responsive class="align-center text-center fill-height pb-4">
-        <v-img height="200" src="@/assets/sources/logos/logo.png" />
+  <div id="home" class="fill-height center">
+    <v-container>
+      <v-responsive class="align-center text-center pb-4">
+        <v-img height="100" src="@/assets/sources/logos/logo.svg" />
 
         <div class="text-body-2 font-weight-light mb-n1">Welcome to</div>
 
@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import '@/assets/styles/views/Home.scss'
+import '@/assets/styles/views/home.scss'
 import { ref } from 'vue'
 
 export default {

@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import '@/assets/styles/views/Error.scss'
+import '@/assets/styles/views/error.scss'
 
 export default {
   name: "ErrorPage",
