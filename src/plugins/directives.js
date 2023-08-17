@@ -7,7 +7,7 @@ export default (app) => {
       const { value, arg, modifiers } = binding
 
       const styles = (item) => {
-        item.style.fontFamily = arg
+        if (arg) item.style.fontFamily = arg
         item.style.fontSize = toCssVal(value)
       }
 
