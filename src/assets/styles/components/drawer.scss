@@ -1,0 +1,14 @@
+#drawer {
+  background-image: linear-gradient(#0b3f6b, #2a8ada);
+
+  .v-list-item {
+    &-title {
+      font-size: 15px;
+    }
+  }
+
+  .v-btn {
+    --fw: 500;
+    width: 100%;
+  }
+}

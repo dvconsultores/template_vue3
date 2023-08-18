@@ -8,6 +8,7 @@ const store = createStore({
       email: undefined,
       avatar: undefined,
     },
+    drawer: true,
   },
   mutations: {
     setData(state, data) {
@@ -18,8 +19,10 @@ const store = createStore({
     },
     signOut() {
       // LOG OUT
-      test
     },
+    setDrawerState(state, value) {
+      state.drawer = value
+    }
   },
   actions: {
     modalConnect() {
