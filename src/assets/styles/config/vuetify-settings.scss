@@ -13,6 +13,20 @@
 }
 
 
+.v-otp-input {
+  padding: 0 !important;
+
+  &__content {
+    padding: 0 !important;
+  }
+
+  .v-field--focused .v-field__outline * {
+    border-color: $primary;
+  }
+}
+
+
+
 
 // .v-application {
 //   .page-title {

@@ -14,18 +14,18 @@ body {
 }
 
 // ? disable default spin on input type="number"
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  /* display: none; <- Crashes Chrome on hover */
-  -webkit-appearance: none;
-  margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
-}
+// input::-webkit-outer-spin-button,
+// input::-webkit-inner-spin-button {
+//   /* display: none; <- Crashes Chrome on hover */
+//   -webkit-appearance: none;
+//   margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+// }
 
-/* Firefox */
-input[type=number] {
-  appearance: textfield;
-  -moz-appearance: textfield;
-}
+// /* Firefox */
+// input[type=number] {
+//   appearance: textfield;
+//   -moz-appearance: textfield;
+// }
 
 //---------------------------------------------------------------------------------------------//
 //============================== delete-config-default-vuetify ================================//
