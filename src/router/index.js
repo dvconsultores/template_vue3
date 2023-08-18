@@ -16,7 +16,7 @@ const routes = [
         path: '',
         name: 'Home',
         component: () => import('@/views/home.vue'),
-        meta: { title: `Home - ${DEFAULT_TITLE}` }
+        meta: { head: `Home - ${DEFAULT_TITLE}` }
       },
     ],
   },
@@ -30,13 +30,13 @@ const routes = [
         path: '/login',
         name: 'Login',
         component: () => import('@/views/login.vue'),
-        meta: { title: `Login - ${DEFAULT_TITLE}` }
+        meta: { head: `Login - ${DEFAULT_TITLE}` }
       },
       {
         path: "/:pathMatch(.*)*",
         name: "Error",
         component: () => import('@/views/error.vue'),
-        meta: { title: `Error - ${DEFAULT_TITLE}` }
+        meta: { head: `Error - ${DEFAULT_TITLE}` }
       },
     ],
   },
@@ -69,7 +69,7 @@ router.afterEach((to, from) => {
   // Use next tick to handle router history correctly
   // see: https://github.com/vuejs/vue-router/issues/914#issuecomment-384477609
   nextTick(() => {
-      document.title = to.meta.title || DEFAULT_TITLE;
+      document.title = to.meta.head || DEFAULT_TITLE;
   });
 });
 
