@@ -8,7 +8,7 @@
 
         <h1 class="text-h2 font-weight-bold">Vuetify</h1>
 
-        <h2 v-font:3,5em="16" class="py-5">{{name}}</h2>
+        <h2 v-font="[16, 3.5]" class="py-5">{{name}}</h2>
 
         <v-btn
           class="bg-primary text-white"
