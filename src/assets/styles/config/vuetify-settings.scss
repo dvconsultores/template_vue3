@@ -3,6 +3,7 @@
 
 .v-btn {
   text-transform: var(--tt, none);
+  letter-spacing: var(--ls, normal);
   * {text-transform: var(--tt, none);}
 
   .v-progress-circular {
