@@ -166,4 +166,13 @@ export default () => {
     }
   }
   // copyToClipboard() <-- example
+
+
+  // split url =========================================================================================================//
+  if (!String.prototype.splitUrl) {
+    String.prototype.splitUrl = function(by, at) {
+      return this.split(by).at(at)
+    }
+  }
+  // splitUrl('?', 0) <-- example
 }
