@@ -1,4 +1,8 @@
+import { useToast } from "vue-toastification"
+
 export default () => {
+  const toast = useToast()
+
   // set-properties =========================================================================================================//
   if (!HTMLElement.prototype.setProperty) {
     HTMLElement.prototype.setProperty = function(props) {
@@ -156,8 +160,9 @@ export default () => {
 
   // copy to clipboard =========================================================================================================//
   if (!String.prototype.copyToClipboard) {
-    String.prototype.copyToClipboard = async function() {
+    String.prototype.copyToClipboard = async function(message) {
       await navigator.clipboard.writeText(this)
+      if (message) toast.info(message)
     }
   }
   // copyToClipboard() <-- example
