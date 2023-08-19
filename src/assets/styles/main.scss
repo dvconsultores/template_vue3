@@ -1,14 +1,14 @@
-@forward "./config/Default-settings";
-@forward "./config/Vuetify-settings"; // TODO update this file
-@forward "./config/Mixins";
-@forward "./config/Custom-mixins";
-@forward "./config/Personal-classes";
-@forward "./config/Responsive";
-@forward "./config/Variables";
-@forward "./config/Fonts";
-@forward "./config/Typography";
-@use "./config/Mixins" as *;
-@use "./config/Variables" as *;
+@forward "./config/default-settings";
+// @forward "./config/vuetify-settings"; // TODO update this file
+@forward "./config/mixins";
+@forward "./config/custom-mixins";
+@forward "./config/personal-classes";
+@forward "./config/responsive";
+@forward "./config/variables";
+@forward "./config/fonts";
+@forward "./config/typography";
+@use "./config/mixins" as *;
+@use "./config/variables" as *;
 
 
 

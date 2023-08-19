@@ -8,7 +8,7 @@ import vueDebounce from './vue-debounce'
 import vuetify from './vuetify'
 import router from '../router'
 import store from '../store'
-import { loadFonts } from './webfontloader'
+// import { loadFonts } from './webfontloader'
 import vueToastification from './vue-toastification'
 import vueI18n from './vue-i18n'
 import vueApexChart from './apexchart'
@@ -44,7 +44,7 @@ export function registerPlugins (app) {
   nearApi(app)
 
   // Use custom plugins
-  loadFonts()
+  // loadFonts()
   vueI18n(app)
   vueToastification(app)
   vueApexChart(app)

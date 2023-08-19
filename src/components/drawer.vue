@@ -57,37 +57,37 @@
   </v-navigation-drawer>
 </template>
 
-<script>
-import isMobile from '@/mixins/isMobile';
+<script setup>
+import { createApp } from 'vue'
+import { useRouter } from 'vue-router'
+import { useDisplay } from 'vuetify/lib/framework.mjs'
 
-export default {
+const router = useRouter()
+const isMobile = useDisplay().mobile
+
+createApp({
   name: "DrawerComponent",
-  mixins: [isMobile],
-  setup() {
-    return {
-      data: [
-        {
-          icon: "mdi-currency-usd",
-          name: "Mi perfil",
-          to: "/profile"
-        },
-        {
-          icon: "mdi-home-outline",
-          name: "Dashboard",
-          to: "/"
-        },
-        {
-          icon: "mdi-file-document-outline",
-          name: "Mis casos",
-        },
-      ],
-    }
+})
+
+const data = [
+  {
+    icon: "mdi-currency-usd",
+    name: "Mi perfil",
+    to: "/profile"
   },
-  methods: {
-    logOut() {
-      this.$router.push('/login')
-    },
-  }
+  {
+    icon: "mdi-home-outline",
+    name: "Dashboard",
+    to: "/"
+  },
+  {
+    icon: "mdi-file-document-outline",
+    name: "Mis casos",
+  },
+]
+
+function logOut() {
+  router.push('/login')
 }
 </script>
 
