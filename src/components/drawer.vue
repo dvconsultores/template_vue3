@@ -15,7 +15,7 @@
       <v-list-item
         v-for="item in data" :key="item"
         :title="item.name"
-        :to="item.to"
+        @click="item.to ? $router.push(item.to) : null"
         class="text-white"
       >
         <template #prepend>
