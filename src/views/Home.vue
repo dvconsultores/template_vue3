@@ -9,8 +9,6 @@
 
       <h2 v-font="[16, 3.5]" class="py-5">{{name}}</h2>
 
-      <v-btn>hola</v-btn>
-
       <v-btn
         class="bg-primary text-white"
         rounded @click="$router.push('/login')"

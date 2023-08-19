@@ -11,6 +11,7 @@ import 'vuetify/styles'
 
 // Composables
 import { createVuetify } from 'vuetify'
+// import { en, es } from 'vuetify/locale'
 import { md2 } from 'vuetify/blueprints'
 import { aliases as faAliases, fa } from 'vuetify/iconsets/fa4'
 import { aliases as mdiAliases, mdi } from 'vuetify/iconsets/mdi'
@@ -24,6 +25,11 @@ export default createVuetify({
     defaultTheme: 'light',
     themes: themes,
   },
+  // locale: {
+  //   locale: 'en',
+  //   fallback: 'en',
+  //   messages: { en, es },
+  // },
   blueprint: md2,
   icons: {
     defaultSet: 'mdi',
