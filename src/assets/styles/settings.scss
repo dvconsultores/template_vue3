@@ -1,5 +1,5 @@
-@use "variables" as *;
-@use "mixins" as *;
+@use "./config/variables.scss" as *;
+@use "./config/mixins.scss" as *;
 @use 'vuetify/settings'; /* with (
 ); */
 
@@ -123,6 +123,7 @@
   &[class*="-spaceb"] {justify-content: space-between}
   &[class*="-spacee"] {justify-content: space-evenly}
   &[class*="-space-center"] {align-items: center;justify-content: space-between}
+  &[class*="-column-center"] {flex-direction: column;}
 }
 
 .overscroll-auto {overscroll-behavior: auto}
@@ -460,7 +461,7 @@ body {
   ::-webkit-scrollbar {
     width: var(--w-scroll);
     height: var(--w-scroll);
-    background: $tertiary;
+    background: $bg-app;
     // &:hover {background: $secondary}
   }
   ::-webkit-scrollbar-thumb {

@@ -2,8 +2,9 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import { useStorage } from "vue3-storage-secure";
 import { nextTick } from 'vue'
+import { APP_NAMES } from '@/plugins/dictionary';
 
-const DEFAULT_TITLE = 'Apolo Pay';
+const DEFAULT_TITLE = APP_NAMES.capitalize;
 
 const routes = [
   // ? Default routes
@@ -15,7 +16,7 @@ const routes = [
       {
         path: '',
         name: 'Home',
-        component: () => import('@/views/home.vue'),
+        component: () => import('@/pages/home.vue'),
         meta: { head: `Home - ${DEFAULT_TITLE}` }
       },
     ],
@@ -29,13 +30,13 @@ const routes = [
       {
         path: '/login',
         name: 'Login',
-        component: () => import('@/views/login.vue'),
+        component: () => import('@/pages/login.vue'),
         meta: { head: `Login - ${DEFAULT_TITLE}` }
       },
       {
         path: "/:pathMatch(.*)*",
         name: "Error",
-        component: () => import('@/views/error.vue'),
+        component: () => import('@/pages/error.vue'),
         meta: { head: `Error - ${DEFAULT_TITLE}` }
       },
     ],

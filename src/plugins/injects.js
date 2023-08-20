@@ -19,7 +19,7 @@ export default (app) => {
 
   // alerts =========================================================================================================//
   const alerts = (key, {title, desc, color, timeout, centered, top, bottom, left, right} = {}) => {
-    if (ALERT_TYPE.VALUES().includes(key)) {
+    if (ALERT_TYPE.values().includes(key)) {
       app.router.app.$children.find(data=>data.$el === document.querySelector(".v-application")).$refs.alerts.
         GenerateAlert(key, title, desc, color, timeout, centered, top, bottom, left, right);
     } else {
@@ -41,7 +41,7 @@ export default (app) => {
 
   // scroll-to =========================================================================================================//
   const scrollTo = id => {
-    if (SCROLL_TO.VALUES().includes(id)) {
+    if (SCROLL_TO.values().includes(id)) {
       setTimeout(()=> {
         window.scrollTo(0, 1);
       }, 0);

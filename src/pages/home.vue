@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import '@/assets/styles/views/home.scss'
+import '@/assets/styles/pages/home.scss'
 import { ref } from 'vue'
 
 export default {

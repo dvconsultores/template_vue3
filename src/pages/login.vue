@@ -53,7 +53,7 @@
 </template>
 
 <script>
-import '@/assets/styles/views/login.scss'
+import '@/assets/styles/pages/login.scss'
 import { ref } from 'vue'
 import { useToast } from "vue-toastification";
 const toast = useToast();

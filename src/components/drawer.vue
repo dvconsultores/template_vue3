@@ -44,7 +44,7 @@
         @click="logOut()"
       >Cerrar sesión</v-btn>
 
-      <div class="center">
+      <div class="flex-center">
         <img
           src="@/assets/sources/logos/logo.svg"
           alt="logo"
