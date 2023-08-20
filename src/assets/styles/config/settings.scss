@@ -57,6 +57,26 @@
 //---------------------------------------------------------------------------------------------//
 //?========== utility classes ==========//
 //---------------------------------------------------------------------------------------------//
+[c-font] {
+  text-decoration: var(--under, initial);
+  font-size: var(--fs, 16px);
+  letter-spacing: var(--ls, normal);
+  line-height: var(--lh, 1);
+}
+[c-box] {
+  width: var(--w, auto);
+  max-width: var(--max-w, auto);
+  min-width: var(--min-w, auto);
+  height: var(--h, auto);
+  max-height: var(--max-h, auto);
+  min-height: var(--min-h, auto);
+  padding: var(--p, initial);
+  margin: var(--m, initial);
+  box-shadow: var(--bs, initial);
+  border: var(--b, initial);
+  border-radius: var(--br, initial);
+  background: var(--bg, initial);
+}
 
 .font-resizer {font-size: var(--resizer)}
 .font-1 {font-family:var(--font-1)}
@@ -508,31 +528,19 @@ body {background: $bg-app}
 //?======================================= html (tags) ========================================//
 //---------------------------------------------------------------------------------------------//
 img:not(.not_html, .not, .v-img__img) {
-  --bg: none;
-  --max-w: none;
-  --min-w: none;
-  --max-h: none;
-  --min-h: none;
-  --ar: initial;
-  --p: none;
-  --b: none;
-  --br: initial;
-  --bs: initial;
-  --f: none;
-  --t: initial;
-  --of: initial;
-  
-  background: var(--bg);
-  max-width: var(--max-w);
-  min-width: var(--min-w);
-  max-height: var(--max-h);
-  min-height: var(--min-h);
-  aspect-ratio: var(--ar);
-  padding: var(--p);
-  border: var(--b);
-  border-radius: var(--br);
-  box-shadow: var(--bs);
-  transform: var(--t);
-  object-fit: var(--of);
-  filter: var(--f);
+  background: var(--bg, initial);
+  width: var(--w, auto);
+  max-width: var(--max-w, auto);
+  min-width: var(--min-w), auto;
+  height: var(--h, auto);
+  max-height: var(--max-h, auto);
+  min-height: var(--min-h, auto);
+  aspect-ratio: var(--ar, initial);
+  padding: var(--p, initial);
+  border: var(--b, initial);
+  border-radius: var(--br, initial);
+  box-shadow: var(--bs, none);
+  transform: var(--t, none);
+  object-fit: var(--of, initial);
+  filter: var(--f, none);
 }

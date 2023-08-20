@@ -82,9 +82,3 @@ label:not(.v-input .v-label, .not_typography, .not) {
   letter-spacing: var(--ls, normal);
   line-height: var(--lh, 1);
 }
-.hspan {
-  text-decoration: var(--under, initial);
-  font-size: var(--fs, 16px);
-  letter-spacing: var(--ls, normal);
-  line-height: var(--lh, 1);
-}
