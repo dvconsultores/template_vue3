@@ -11,8 +11,8 @@
 
       <v-btn
         class="bg-primary text-white"
-        rounded @click="$router.push('/login')"
-      >log out</v-btn>
+        rounded @click="console.log('do anything!')"
+      >Do Anything!</v-btn>
     </v-responsive>
   </div>
 </template>

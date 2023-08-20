@@ -8,13 +8,11 @@ import vueDebounce from './vue-debounce'
 import vuetify from './vuetify'
 import router from '../router'
 import store from '../store'
+import vueI18n from './vue-i18n'
 // import { loadFonts } from './webfontloader'
 import vueToastification from './vue-toastification'
-import vueI18n from './vue-i18n'
-import vueApexChart from './apexchart'
-import googleMaps from './google-maps'
 import VueHtml2Canvas from 'vue-html2canvas'
-import VueRecaptcha from 'vue3-recaptcha2'
+import googleMaps from './google-maps'
 
 import mixins from './mixins-import'
 
@@ -37,7 +35,6 @@ export function registerPlugins (app) {
     .use(router)
     .use(store)
     .use(VueHtml2Canvas)
-    .component('VueRecaptcha', VueRecaptcha)
 
   // Use services
   firebaseApi(app)
@@ -47,7 +44,6 @@ export function registerPlugins (app) {
   // loadFonts()
   vueI18n(app)
   vueToastification(app)
-  vueApexChart(app)
   googleMaps(app)
 
   mixins(app) // this should be the last one

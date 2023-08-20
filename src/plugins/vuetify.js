@@ -12,11 +12,10 @@ import 'vuetify/styles'
 // Composables
 import { createVuetify } from 'vuetify'
 // import { en, es } from 'vuetify/locale'
-import { md2 } from 'vuetify/blueprints'
+import { md3 } from 'vuetify/blueprints'
 import { aliases as faAliases, fa } from 'vuetify/iconsets/fa4'
 import { aliases as mdiAliases, mdi } from 'vuetify/iconsets/mdi'
-import { VOtpInput } from 'vuetify/labs/VOtpInput'
-import { VDataTable, VDataTableServer } from 'vuetify/labs/VDataTable'
+import components from './components-import'
 import themes from './themes.js'
 
 // https://vuetifyjs.com/en/introduction/why-vuetify/#feature-guides
@@ -30,7 +29,7 @@ export default createVuetify({
   //   fallback: 'en',
   //   messages: { en, es },
   // },
-  blueprint: md2,
+  blueprint: md3,
   icons: {
     defaultSet: 'mdi',
     aliases: {
@@ -49,11 +48,7 @@ export default createVuetify({
       xl: 1800,
     },
   },
-  components: {
-    VOtpInput,
-    VDataTable,
-    VDataTableServer,
-  },
+  components: components,
   // Set default config to components
   defaults: {
     global: {},

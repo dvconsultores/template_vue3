@@ -1,16 +1,7 @@
 import { ALERT_TYPE, SCROLL_TO } from '@/plugins/dictionary';
 
+// TODO must to be updated
 export default (app) => {
-  // console-log =========================================================================================================//
-  const log = (...msgs) => {
-    msgs.forEach((msg, i) => {
-      console.log(`${i+1}:`, msg);
-    });
-  }
-  // usage $log(msg)
-  app.provide('log', log);
-
-
   // target-tooltip =========================================================================================================//
   const targetTooltip = (el, isResizeY = 0, isResizeX = 0) => {
     setTimeout(() => {
