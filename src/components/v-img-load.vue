@@ -62,11 +62,6 @@ defineProps({
 
 <style lang="scss">
 .v-img-load {
-  img {
-    border: var(--border);
-    border-radius: var(--border-radius);
-  }
-
   .v-img__placeholder .v-skeleton-loader{
     border-radius: 50%;
 
