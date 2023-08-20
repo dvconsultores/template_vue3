@@ -6,7 +6,7 @@
     class="py-8 px-2"
   >
     <v-list nav>
-      <div v-if="isMobile" class="jstart" style="gap: 10px">
+      <div v-if="isMobile" class="flex-jstart" style="gap: 10px">
         <v-btn icon elevation="0" size="30">
           <v-icon size="20">mdi-cog-outline</v-icon>
         </v-btn>
@@ -17,10 +17,10 @@
       </div>
 
 
-      <div class="acenter my-3 text-white" style="gap: 10px">
+      <div class="flex-acenter my-3 text-white" style="gap: 10px">
         <v-avatar image="@/assets/sources/images/avatar.png" alt="avatar" />
 
-        <h6 class="p" style="--fw: 800">¡Hola detextre4!</h6>
+        <h6 class="mb-0">¡Hola detextre4!</h6>
       </div>
 
       <v-list-item
@@ -40,8 +40,7 @@
     <v-list nav>
       <v-btn
         block
-        class="bg-primary"
-        style="--fw: 500"
+        class="bg-primary w500"
         @click="logOut()"
       >Cerrar sesión</v-btn>
 

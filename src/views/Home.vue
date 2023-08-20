@@ -1,5 +1,5 @@
 <template>
-  <div id="home" class="fill-height center">
+  <div id="home" class="fill-height flex-center">
     <v-responsive class="align-center text-center pb-4">
       <v-img height="100" src="@/assets/sources/logos/logo.svg" />
 

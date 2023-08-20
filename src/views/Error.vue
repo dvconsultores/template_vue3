@@ -1,5 +1,5 @@
 <template>
-  <section id="error-page" class="center divcol">
+  <section id="error-page" class="flex-column-center">
     <h1 class="p bold">{{error.title ?? $t("error.title")}}</h1>
     <span class="bold">{{error.description ?? $t("error.description")}}</span>
     <v-btn :to="error.to" class="bold">{{error.button ?? $t("error.button")}}</v-btn>

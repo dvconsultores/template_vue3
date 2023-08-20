@@ -24,17 +24,17 @@
         @keydown="e => e.key === 'Enter' ? handleLogin() : null"
       ></v-text-field>
 
-      <div class="space">
+      <div class="flex-space-center">
         <v-checkbox
           v-model="rememberMe"
           label="Recuérdame"
           density="compact"
           hide-details
           color="rgb(var(--v-theme-primary))"
-          style="flex-grow: 0"
+          class="flex-grow-0"
         ></v-checkbox>
 
-        <a class="tend">¿Olvidaste tu contraseña?</a>
+        <a class="text-end">¿Olvidaste tu contraseña?</a>
       </div>
 
       <v-btn

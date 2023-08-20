@@ -1,13 +1,9 @@
 //---------------------------------------------------------------------------------------------//
 //========================================= typography ========================================//
 //---------------------------------------------------------------------------------------------//
-:where(span, p, a, h1, h2, h3, h4, h5, h6, label, button, ul, img, button i, div i, input, textarea, th, td, .v-list-item__title,
-.v-tab, .v-input .v-input__slot *, .v-data-footer__select, .v-data-footer__pagination, .v-data-footer__icons::before):not(.not_typography, .not) {
-  font-weight: var(--fw) !important;
-}
 
-// default font family
-#app > * {font-family: var(--font1)}
+//? default font family
+#app > * {font-family: var(--font-1)}
 * {font-family: inherit}
 
 button:not(.not_typography, .not) {
@@ -16,8 +12,8 @@ button:not(.not_typography, .not) {
   }
 }
 h1:not(.not_typography, .not) {
-  font-family: var(--font1);
-  font-weight: var(--fw, 400) !important;
+  font-family: var(--font-1);
+  font-weight: var(--fw, 400);
   font-size: var(--fs, max(16px, 4em));
   letter-spacing: var(--ls, 0.625em);
   line-height: var(--lh, 1);
@@ -25,70 +21,70 @@ h1:not(.not_typography, .not) {
   margin-bottom: var(--mb, 16px);
 }
 h2:not(.not_typography, .not) {
-  font-family: var(--font1);
-  font-weight: var(--fw, 400) !important;
+  font-family: var(--font-1);
+  font-weight: var(--fw, 400);
   font-size: var(--fs, max(16px, 3em));
   letter-spacing: var(--ls, 0.03em);
   line-height: var(--lh, 1);
   margin-bottom: var(--mb, 16px);
 }
 h3:not(.not_typography, .not) {
-  font-family: var(--font1);
-  font-weight: var(--fw, 400) !important;
+  font-family: var(--font-1);
+  font-weight: var(--fw, 400);
   font-size: var(--fs, max(16px, 2.5em));
   letter-spacing: var(--ls, 0.03em);
   line-height: var(--lh, 1);
   margin-bottom: var(--mb, 16px);
 }
 h4:not(.not_typography, .not) {
-  font-family: var(--font1);
-  font-weight: var(--fw, 400) !important;
+  font-family: var(--font-1);
+  font-weight: var(--fw, 400);
   font-size: var(--fs, max(16px, 2em));
   letter-spacing: var(--ls, 0.03em);
   line-height: var(--lh, 1);
   margin-bottom: var(--mb, 16px);
 }
 h5:not(.not_typography, .not) {
-  font-family: var(--font1);
-  font-weight: var(--fw, 400) !important;
+  font-family: var(--font-1);
+  font-weight: var(--fw, 400);
   font-size: var(--fs, max(16px, 1.5em));
   letter-spacing: var(--ls, 0.03em);
   line-height: var(--lh, 1);
   margin-bottom: var(--mb, 16px);
 }
 h6:not(.not_typography, .not) {
-  font-family: var(--font1);
-  font-weight: var(--fw, 400) !important;
+  font-family: var(--font-1);
+  font-weight: var(--fw, 400);
   font-size: var(--fs, max(16px, 1em));
   letter-spacing: var(--ls, 0.03em);
   line-height: var(--lh, 1);
   margin-bottom: var(--mb, 16px);
 }
 p:not(.not_typography, .not) {
-  font-family: var(--font1);
-  font-weight: var(--fw, 400) !important;
+  font-family: var(--font-1);
+  font-weight: var(--fw, 400);
   font-size: var(--fs, max(16px, 1em));
   line-height: var(--lh, 1.1);
   margin-bottom: var(--mb, 16px);
 }
 a:not(.not_typography, .not) {
   text-decoration: var(--under, none);
-  font-family: var(--font1);
-  font-weight: var(--fw, 400) !important;
-  font-size: var(--fs, max(13px, 1em)) !important;
+  font-family: var(--font-1);
+  font-weight: var(--fw, 400);
+  font-size: var(--fs, max(13px, 1em));
   letter-spacing: var(--ls, normal);
   line-height: var(--lh, 1);
 }
 label:not(.v-input .v-label, .not_typography, .not) {
-  font-family: var(--font1);
-  font-weight: var(--fw, 400) !important;
+  font-family: var(--font-1);
+  font-weight: var(--fw, 400);
   font-size: var(--fs, max(13px, 1em));
   letter-spacing: var(--ls, normal);
   line-height: var(--lh, 1);
 }
 .hspan {
   text-decoration: var(--under, initial);
-  font-size: var(--fs, 16px) !important;
+  font-size: var(--fs, 16px);
   letter-spacing: var(--ls, normal);
   line-height: var(--lh, 1);
 }
