@@ -48,7 +48,7 @@ export default (app) => {
         if (modifiers.in)
           for (const item of el.children) item.style.flex = value.flexx
         else
-          item.style.flex = value.flex
+          el.style.flex = value.flex
     },
   })
 

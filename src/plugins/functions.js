@@ -26,7 +26,7 @@ export function toCssVal(value, unit = 'px') {
       switch (length) {
         case 2: {
           if (i === 1) return `${val}em`
-        }
+        } break;
         case 3: {
           if (i === 1) return `${val}vw`
         } break;
