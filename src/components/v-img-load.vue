@@ -40,7 +40,7 @@ defineProps({
   aspectRatio: Number,
   contentClass: String,
   cover: Boolean,
-  eager: String,
+  eager: Boolean,
   gradient: String,
   height: String,
   maxHeight: String,
