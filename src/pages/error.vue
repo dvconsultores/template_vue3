@@ -1,27 +1,29 @@
 <template>
   <section id="error-page" class="flex-column-center">
-    <h1 class="p bold">{{error.title ?? $t("error.title")}}</h1>
-    <span class="bold">{{error.description ?? $t("error.description")}}</span>
-    <v-btn :to="error.to" class="bold">{{error.button ?? $t("error.button")}}</v-btn>
+    <h1 class="mb-0 wbol">{{error.title ?? $t("error.title")}}</h1>
+    <span class="wbold">{{error.description ?? $t("error.description")}}</span>
+    <v-btn :to="error.to" class="wbold text-white">{{error.button ?? $t("error.button")}}</v-btn>
   </section>
 </template>
 
-<script>
+<script setup>
 import '@/assets/styles/pages/error.scss'
+import { createApp } from 'vue';
 
-export default {
+createApp({
   name: "ErrorPage",
   layout: 'auth-layout',
-  props: {
-    error: {
-      type: Object,
-      default: {
-        title: undefined,
-        description: undefined,
-        button: undefined,
-        to: "/",
-      },
-    },
+})
+
+defineProps({
+  error: {
+    type: Object,
+    default:() => ({
+      title: undefined,
+      description: undefined,
+      button: undefined,
+      to: "/",
+    }),
   },
-}
+})
 </script>
