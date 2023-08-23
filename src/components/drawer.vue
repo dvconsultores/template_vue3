@@ -1,12 +1,12 @@
 <template>
   <v-navigation-drawer
     id="drawer"
-    v-model="$store.state.drawer"
-    :permanent="!isMobile"
+    v-model="store.state.drawer"
+    :permanent="!mobile"
     class="py-8 px-2"
   >
     <v-list nav>
-      <div v-if="isMobile" class="flex-jstart" style="gap: 10px">
+      <div v-if="mobile" class="flex-jstart" style="gap: 10px">
         <v-btn icon elevation="0" size="30">
           <v-icon size="20">mdi-cog-outline</v-icon>
         </v-btn>
@@ -26,7 +26,7 @@
       <v-list-item
         v-for="item in data" :key="item"
         :title="item.name"
-        @click="item.to ? $router.push(item.to) : null"
+        @click="item.to ? router.push(item.to) : null"
         class="text-white"
       >
         <template #prepend>
@@ -58,11 +58,14 @@
 
 <script setup>
 import { createApp } from 'vue'
+import { useStore } from 'vuex';
 import { useRouter } from 'vue-router'
 import { useDisplay } from 'vuetify/lib/framework.mjs'
 
-const router = useRouter()
-const isMobile = useDisplay().mobile
+const
+  router = useRouter(),
+  store = useStore(),
+  { mobile } = useDisplay()
 
 createApp({
   name: "DrawerComponent",
