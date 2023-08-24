@@ -19,8 +19,15 @@
 
 <script setup>
 import '@/assets/styles/pages/home.scss'
-import { ref } from 'vue';
+import variables from '@/mixins/variables';
+import { onMounted, ref } from 'vue';
+const
+  { isLogged } = variables
 
 const
   name = ref("detextre4")
+
+onMounted(() => {
+  console.log(isLogged() ? 'logged in - ' : '', `welcome back ${name.value}`);
+})
 </script>
