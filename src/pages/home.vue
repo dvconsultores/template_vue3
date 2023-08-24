@@ -17,16 +17,10 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import '@/assets/styles/pages/home.scss'
-import { ref } from 'vue'
+import { ref } from 'vue';
 
-export default {
-  name: "HomePage",
-  setup() {
-    return {
-      name: ref("detextre4"),
-    }
-  },
-}
+const
+  name = ref("detextre4")
 </script>

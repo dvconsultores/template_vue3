@@ -44,3 +44,22 @@ export function toCssVal(value, unit = 'px') {
     }
   }
 }
+
+export async function getImageSize(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+
+    reader.onload = function(event) {
+      const img = new Image();
+      img.onload = function() {
+        const width = img.width;
+        const height = img.height;
+        resolve({ width, height });
+      };
+      img.src = event.target.result;
+    };
+    reader.onerror = (error) => reject(error);
+
+    reader.readAsDataURL(file);
+  });
+}

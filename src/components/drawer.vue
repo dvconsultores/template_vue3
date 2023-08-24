@@ -57,19 +57,14 @@
 </template>
 
 <script setup>
-import { createApp } from 'vue'
 import { useStore } from 'vuex';
 import { useRouter } from 'vue-router'
 import { useDisplay } from 'vuetify/lib/framework.mjs'
-
 const
   router = useRouter(),
   store = useStore(),
   { mobile } = useDisplay()
 
-createApp({
-  name: "DrawerComponent",
-})
 
 const data = [
   {
@@ -89,11 +84,11 @@ const data = [
 ]
 
 function logOut() {
-  router.push('/login')
+  router.push('/auth')
 }
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 #drawer {
   background-image: linear-gradient(#0b3f6b, #2a8ada);
 
