@@ -24,6 +24,7 @@ import { onMounted, ref } from 'vue';
 const
   { isLogged } = variables
 
+
 const
   name = ref("detextre4")
 

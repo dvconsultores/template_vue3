@@ -65,11 +65,10 @@ import { createApp, onBeforeMount, ref, computed } from 'vue';
 import { useRouter } from 'vue-router';
 import { useToast } from "vue-toastification";
 import { useStorage } from 'vue3-storage-secure';
-const toast = useToast();
-const storage = useStorage()
-const router = useRouter()
-
-const { globalRules } = variables
+const toast = useToast(),
+  storage = useStorage(),
+  router = useRouter(),
+  { globalRules } = variables
 
 createApp({
   layout: "auth-layout",

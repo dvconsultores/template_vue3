@@ -55,6 +55,7 @@ const router = createRouter({
 router.beforeEach((to, from, next) => {
   if (to.path === '/auth') return next({ name: 'Login' })
 
+
   // does not require auth, make sure to always call next()!
   if (!to.matched.some(record => record.meta.requiresAuth)) return next()
 
@@ -72,7 +73,8 @@ router.afterEach((to, from) => {
   // Use next tick to handle router history correctly
   // see: https://github.com/vuejs/vue-router/issues/914#issuecomment-384477609
   nextTick(() => {
-      document.title = to.meta.head || DEFAULT_TITLE;
+    if (to.meta.head) document.title = to.meta.head.toString();
+    else document.title = DEFAULT_TITLE;
   });
 });
 
