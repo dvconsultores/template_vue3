@@ -15,15 +15,17 @@ export const firebaseApp = initializeApp({
 
 export const db = getFirestore(firebaseApp)
 
-//! UNDER TESTING
 export default (app) => {
-  app.use(VueFire, {
+  const options = {
+    firebaseApp,
     modules: [
       VueFireFirestoreOptionsAPI({
         // this would be the same behavior as VueFire v2
-        // reset: true,
-        // wait: false,
+        reset: true,
+        wait: false,
       }),
-    ]
-  })
+    ],
+  };
+
+  app.use(VueFire, options);
 }
