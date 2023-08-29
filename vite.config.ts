@@ -7,9 +7,9 @@ import { defineConfig, loadEnv } from 'vite'
 import { fileURLToPath, URL } from 'node:url'
 
 // https://vitejs.dev/config/
-export default defineConfig((command, mode, ssrBuild) => {
+export default defineConfig((userConfig) => {
   const isProduction = process.env.NODE_ENV === 'production'
-  const env = loadEnv(mode, process.cwd(), '')
+  const env = loadEnv(userConfig.mode, process.cwd(), '')
 
   const baseUrl = isProduction ? env.BASE_URL : env.VITE_BASE_URL
 
