@@ -11,7 +11,6 @@ import store from '../store'
 import vueI18n from './vue-i18n'
 // import { loadFonts } from './webfontloader'
 import vueToastification from './vue-toastification'
-import VueHtml2Canvas from 'vue-html2canvas'
 import googleMaps from './google-maps'
 
 import mixins from './mixins-import'
@@ -34,7 +33,6 @@ export function registerPlugins (app) {
     .use(vuetify)
     .use(router)
     .use(store)
-    .use(VueHtml2Canvas)
 
   // Use services
   firebaseApi(app)
