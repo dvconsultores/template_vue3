@@ -2,23 +2,17 @@ import { createStore } from 'vuex'
 
 const store = createStore({
   state: {
-    user: {
+    drawer: true,
+    profile: {
       uid: undefined,
       username: undefined,
       email: undefined,
       avatar: undefined,
     },
-    drawer: true,
   },
   mutations: {
-    setData(state, data) {
-      // MUTATE USER STATE
-    },
-    signIn(state, key) {
-      // LOG IN
-    },
-    signOut() {
-      // LOG OUT
+    setProfile(state, profile) {
+      state.profile = profile
     },
     setDrawerState(state, value) {
       state.drawer = value
@@ -30,10 +24,6 @@ const store = createStore({
         .find(data => data.$el === document.getElementById("layout"));
 
       layout.$refs.connect.modalConnect = true
-    },
-    getData({commit}) {
-      // GET USER DATA TO SET DATA
-      commit("setData", {});
     },
   },
   getters: {
