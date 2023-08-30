@@ -6,11 +6,4 @@
   </v-app>
 </template>
 
-<script setup>
-import '@/assets/styles/layouts/auth-layout.scss'
-import { createApp } from 'vue'
-
-createApp({
-  name: "AuthLayout",
-})
-</script>
+<style src="@/assets/styles/layouts/auth-layout.scss" lang="scss"></style>

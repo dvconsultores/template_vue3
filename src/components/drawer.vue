@@ -42,7 +42,7 @@
       <v-btn
         block
         class="bg-primary w500"
-        @click="logOut()"
+        @click="AuthApi.logOut"
       >Cerrar sesión</v-btn>
 
       <div class="flex-center">
@@ -61,13 +61,13 @@
 import { useStore } from 'vuex';
 import { useRouter } from 'vue-router'
 import { useDisplay } from 'vuetify/lib/framework.mjs'
+import AuthApi from '@/repository/auth_api';
 const
   router = useRouter(),
   store = useStore(),
-  { mobile } = useDisplay()
+  { mobile } = useDisplay(),
 
-
-const data = [
+data = [
   {
     icon: "mdi-currency-usd",
     name: "Mi perfil",
@@ -83,10 +83,6 @@ const data = [
     name: "Mis casos",
   },
 ]
-
-function logOut() {
-  router.push('/auth')
-}
 </script>
 
 <style scoped lang="scss">
