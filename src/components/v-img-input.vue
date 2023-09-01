@@ -25,7 +25,7 @@
         --border: ${border};
       `"
       @change="event => {
-        src = getUrl(event.target.files[0])
+        src = getImage(event.target.files[0])
         emit('update:modelValue', event.target.files)
       }"
     >
@@ -56,45 +56,48 @@
 
 <script setup>
 import { ref } from 'vue'
-import { getUrl } from '@/plugins/functions'
-
-defineProps({
-  prependInnerIcon: String,
-  prependIcon: String,
-  appendInnerIcon: String,
-  appendIcon: String,
-  alt: String,
-  aspectRatio: Number,
-  contentClass: String,
-  cover: Boolean,
-  eager: Boolean,
-  gradient: String,
-  height: String,
-  maxHeight: String,
-  maxWidth: String,
-  minHeight: String,
-  minWidth: String,
-  sizes: String,
-  width: String,
-  options: Object,
-  transition: String,
-  inline: Boolean,
-  lazySrc: String,
-  rounded: String,
-  border: String,
-  rules: [],
-  errorMessages: [],
-  error: Boolean,
-  messages: String,
-  maxErrors: Number,
-  bgColor: String,
-  baseColor: String,
-})
-
-const 
+const
+  props = defineProps({
+    prependInnerIcon: String,
+    prependIcon: String,
+    appendInnerIcon: String,
+    appendIcon: String,
+    alt: String,
+    aspectRatio: Number,
+    contentClass: String,
+    cover: Boolean,
+    eager: Boolean,
+    gradient: String,
+    height: String,
+    maxHeight: String,
+    maxWidth: String,
+    minHeight: String,
+    minWidth: String,
+    sizes: String,
+    width: String,
+    options: Object,
+    transition: String,
+    inline: Boolean,
+    lazySrc: String,
+    rounded: String,
+    border: String,
+    rules: Array,
+    errorMessages: Array,
+    error: Boolean,
+    messages: String,
+    maxErrors: Number,
+    bgColor: String,
+    baseColor: String,
+  }),
   emit = defineEmits(['update:modelValue']),
 
-src = ref<string|any>(null)
+src = ref(null)
+
+
+function getImage(file) {
+  if (!file) return null
+  return URL.createObjectURL(file)
+}
 </script>
 
 <style lang="scss">
