@@ -26,8 +26,10 @@
         --border: ${border};
       `"
       @change="event => {
-        src = getUrl(event.target.files[0])
-        emit('update:modelValue', event.target.files)
+        const files = event.target.files
+
+        src = getUrl(files[0])
+        emit('update:modelValue', files)
       }"
     >
       <template #selection>
