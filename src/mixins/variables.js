@@ -1,12 +1,15 @@
 import axios from "axios"
+import store from "@/store"
 import { useStorage } from "vue3-storage-secure"
 import { useTheme } from "vuetify/lib/framework.mjs"
-import store from "@/store"
 
 export default {
-  // ? custom defined
+  // ? custom defines
   globalRules: {
-    required: [(v) => !!v || "Field required"],
+    required: [
+      (v) => !!v || "Field required",
+      (v) => !!v?.length || "Field required"
+    ],
     email: [
       (v) => !!v || "Field required",
       (v) => {
