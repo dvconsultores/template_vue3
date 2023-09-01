@@ -1,7 +1,7 @@
 <template>
   <div id="home" class="fill-height flex-center">
     <v-responsive class="align-center text-center pb-4">
-      <v-img height="100" src="@/assets/sources/logos/logo.svg" />
+      <v-img height="100" :src="logo" />
 
       <div class="text-body-1 font-weight-light mb-n1">Welcome to</div>
 
@@ -11,7 +11,7 @@
 
       <v-btn
         class="bg-primary text-white"
-        rounded @click="console.log('do anything!')"
+        rounded @click="anything"
       >Do Anything!</v-btn>
     </v-responsive>
   </div>
@@ -19,6 +19,7 @@
 
 <script setup>
 import '@/assets/styles/pages/home.scss'
+import logo from '@/assets/sources/logos/logo.svg'
 import variables from '@/mixins/variables';
 import { onMounted, ref } from 'vue';
 const
@@ -26,8 +27,11 @@ const
 
 name = ref("detextre4")
 
-
 onMounted(() => {
   console.log(isLogged() ? 'logged in - ' : '', `welcome back ${name.value}`);
 })
+
+function anything() {
+  console.log('do anything!')
+}
 </script>

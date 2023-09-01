@@ -1,3 +1,13 @@
+import store from '@/store'
+
+export function showLoader() {
+  store.commit('setLoaderState', true)
+}
+
+export function closeLoader() {
+  store.commit('setLoaderState', false)
+}
+
 export function isArray(val) {
   return val.constructor.name == 'Array'
 }
@@ -43,6 +53,11 @@ export function toCssVal(value, unit = 'px') {
       default: return `clamp(${formatValue})`
     }
   }
+}
+
+export function getUrl(file) {
+  if (!file) return null
+  return URL.createObjectURL(file)
 }
 
 export async function getImageSize(file) {

@@ -3,6 +3,7 @@ import { createStore } from 'vuex'
 const store = createStore({
   state: {
     drawer: true,
+    loader: false,
     profile: {
       uid: undefined,
       username: undefined,
@@ -16,15 +17,18 @@ const store = createStore({
     },
     setDrawerState(state, value) {
       state.drawer = value
-    }
+    },
+    setLoaderState(state, value) {
+      state.loader = value
+    },
   },
   actions: {
-    modalConnect() {
-      const layout = this.$router.app.$children
-        .find(data => data.$el === document.getElementById("layout"));
+    // modalConnect() {
+    //   const layout = this.$router.app.$children
+    //     .find(data => data.$el === document.getElementById("layout"));
 
-      layout.$refs.connect.modalConnect = true
-    },
+    //   layout.$refs.connect.modalConnect = true
+    // },
   },
   getters: {
     pagination: () => ({items, currentPage, itemsPerPage, search, filterA}) => {
