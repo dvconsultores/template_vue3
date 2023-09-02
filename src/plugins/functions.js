@@ -55,9 +55,26 @@ export function toCssVal(value, unit = 'px') {
   }
 }
 
-export function getUrl(file) {
+export function getUrlFromFile(file) {
   if (!file) return null
   return URL.createObjectURL(file)
+}
+
+export async function getFileFromUrl(url, type = 'image/jpeg') {
+  const
+    response = await fetch(url),
+    blob = await response.blob(),
+    filename = getFilenameFromUrl(url),
+    file = new File([blob], filename, { type })
+  
+  return file
+}
+
+export function getFilenameFromUrl(url) {
+  const path = url.split('/')
+
+  // Gets the last part, which should be the name of the file
+  return path[path.length - 1]
 }
 
 export async function getImageSize(file) {
