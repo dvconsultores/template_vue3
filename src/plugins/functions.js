@@ -1,5 +1,19 @@
 import store from '@/store'
 
+/// Useful to set intersection threshold
+export function buildThresholdList() {
+  const thresholds = [];
+  const numSteps = 20;
+
+  for (let i = 1.0; i <= numSteps; i++) {
+    const ratio = i / numSteps;
+    thresholds.push(ratio);
+  }
+
+  thresholds.push(0);
+  return thresholds;
+}
+
 export function showLoader() {
   store.commit('setLoaderState', true)
 }
@@ -18,6 +32,12 @@ export function isNumber(val) {
 
 export function isString(val) {
   return typeof val == 'string'
+}
+
+export function isOnlyDigits(value) {
+  if (!value) return false
+  const regex = /^[0-9.]+$/
+  return regex.test(value.toString())
 }
 
 export function toCssVal(value, unit = 'px') {
