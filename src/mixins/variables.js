@@ -6,10 +6,8 @@ import { useTheme } from "vuetify/lib/framework.mjs"
 export default {
   // ? custom defines
   globalRules: {
-    required: [
-      (v) => !!v || "Field required",
-      (v) => !!v?.length || "Field required"
-    ],
+    required: [(v) => !!v || "Field required"],
+    listRequired: [(v) => !!v?.length || "Field required"],
     email: [
       (v) => !!v || "Field required",
       (v) => {
