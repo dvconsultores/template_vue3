@@ -20,16 +20,27 @@ import '@/assets/styles/pages/home.scss'
 import logo from '@/assets/sources/logos/logo.svg'
 import variables from '@/mixins/variables';
 import { onMounted, ref } from 'vue';
+import { useToast } from 'vue-toastification';
+import ToastTitle from '@/components/toast-content/toast-title.vue';
 const
   { isLogged } = variables,
+  toast = useToast(),
 
 name = ref("detextre4")
+
 
 onMounted(() => {
   console.log(isLogged() ? 'logged in - ' : '', `welcome back ${name.value}`);
 })
 
+
 function anything() {
-  console.log('do anything!')
+  toast.success({
+    component: ToastTitle,
+    props: {
+      title: "Do anything",
+      desc: "powered by detextre4"
+    }
+  })
 }
 </script>
