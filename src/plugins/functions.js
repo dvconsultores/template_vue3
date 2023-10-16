@@ -153,3 +153,13 @@ export function hourFormatter(time) {
 
   return result;
 }
+
+export function delayed(timeout, callback) {
+  return new Promise((resolve, reject) => {
+    try {
+      setTimeout(() => resolve(callback ? callback() : null), timeout);
+    } catch (error) {
+      reject(error);
+    }
+  });
+}
