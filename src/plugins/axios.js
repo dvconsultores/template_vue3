@@ -1,7 +1,8 @@
 import axios from 'axios'
 import VueAxios from 'vue-axios'
-import router from '@/router'
+import router from '../router'
 import { useStorage } from 'vue3-storage-secure'
+import { storageSecureCollection } from './vue3-storage-secure'
 
 export default (app) => {
   const storage = useStorage()
@@ -13,8 +14,8 @@ export default (app) => {
   axios.interceptors.request.use(
     config => {
       // set default header auth
-      const configToken = config.headers.Authorization
-      const tokenAuth = storage.getStorageSync("tokenAuth")
+      const configToken = config.headers.Authorization,
+      tokenAuth = storage.getSecureStorageSync(storageSecureCollection.tokenAuth)
 
       if (tokenAuth && !configToken) config.headers['Authorization'] = `Token ${tokenAuth}`
       return config
@@ -26,7 +27,12 @@ export default (app) => {
   axios.interceptors.response.use(
     response => response,
     error => {
-      if (error?.response.status === 401) router.push('/auth')
+      if (error?.response.status === 401) {
+        storage.removeStorageSync(storageSecureCollection.tokenAuth)
+        router.push({ name: 'Login' })
+        setTimeout(router.go, 400)
+      }
+
       return Promise.reject(error)
     }
   )

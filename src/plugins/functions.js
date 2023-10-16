@@ -75,6 +75,16 @@ export function toCssVal(value, unit = 'px') {
   }
 }
 
+export function capitalizeEachFirstWord(str) {
+  if (!str) return str
+  return str.split(" ").map((str) => capitalize(str)).join(" ");
+}
+
+export function capitalize(str) {
+  if (!str) return str
+  return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase()
+}
+
 export function getUrlFromFile(file) {
   if (!file) return null
   return URL.createObjectURL(file)
@@ -114,4 +124,32 @@ export async function getImageSize(file) {
 
     reader.readAsDataURL(file);
   });
+}
+
+export function minutesToSeconds(minutes) {
+  return minutes * 60
+}
+
+export function timeOf(time) {
+  return moment(time.seconds * 1000)
+}
+
+export function timeFormatter(time) {
+  return moment(time).format('DD/MM/YYYY HH:MM')
+}
+
+export function hourFormatter(time) {
+  const seconds = Math.floor(time % 60),
+  minutes = Math.floor((time / 60) % 60),
+  hours = Math.floor((time / 3600) % 24),
+  days = Math.floor(time / (3600 * 24))
+
+  let result = "";
+
+  if (days > 0) result += days + "d "
+  if (hours > 0) result += hours + "h "
+  if (minutes > 0) result += minutes + "min "
+  if (seconds > 0) result += seconds + "s"
+
+  return result;
 }

@@ -25,9 +25,9 @@
       </div>
 
       <v-list-item
-        v-for="item in data" :key="item"
+        v-for="(item, i) in data" :key="i"
         :title="item.name"
-        @click="item.to ? router.push(item.to) : null"
+        @click="router.push({ name: item.to })"
         class="text-white"
       >
         <template #prepend>
@@ -71,12 +71,11 @@ data = [
   {
     icon: "mdi-currency-usd",
     name: "Mi perfil",
-    to: "/profile"
   },
   {
     icon: "mdi-home-outline",
     name: "Dashboard",
-    to: "/"
+    to: "Home"
   },
   {
     icon: "mdi-file-document-outline",
@@ -90,9 +89,7 @@ data = [
   background-image: linear-gradient(#0b3f6b, #2a8ada);
 
   .v-list-item {
-    &-title {
-      font-size: 15px;
-    }
+    &-title { font-size: 15px }
   }
 }
 </style>
