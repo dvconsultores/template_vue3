@@ -1,5 +1,27 @@
 import store from '@/store'
 
+export function mapRanged(value, {fromMin, fromMax, toMin, toMax, invert = false}) {
+  let mappedValue =
+      ((value - fromMin) / (fromMax - fromMin)) * (toMax - toMin) + toMin;
+
+  mappedValue = Math.min(Math.max(mappedValue, toMin), toMax);
+  return invert ? toMax + toMin - mappedValue : mappedValue;
+}
+
+export function createObserver({ options, targets, handle }) {
+  options ??= {
+    root: null,
+    rootMargin: "0px",
+    threshold: buildThresholdList(),
+  };
+
+  const observer = new IntersectionObserver(handle, options);
+  if (targets instanceof HTMLElement) observer.observe(targets);
+  else targets.forEach(el => observer.observe(el))
+
+  return observer
+}
+
 /// Useful to set intersection threshold
 export function buildThresholdList() {
   const thresholds = [];
