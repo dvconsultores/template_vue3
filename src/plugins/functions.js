@@ -1,4 +1,8 @@
+import moment from "moment"
 import store from '@/store'
+import imageCompression from 'browser-image-compression';
+import variables from "@/mixins/variables";
+const { defaultMaxDecimals, defaultLocale } = variables
 
 export function mapRanged(value, {fromMin, fromMax, toMin, toMax, invert = false}) {
   let mappedValue =
@@ -148,6 +152,13 @@ export async function getImageSize(file) {
   });
 }
 
+export function formatBytes(bytes, decimals = 2) {
+  if (bytes === 0) return "0 B";
+  const suffixes = ["B", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"];
+  let i = Math.floor(Math.log(bytes) / Math.log(1024));
+  return `${(bytes / Math.pow(1024, i)).toFixed(decimals)} ${suffixes[i]}`;
+}
+
 export function minutesToSeconds(minutes) {
   return minutes * 60
 }
@@ -161,12 +172,12 @@ export function timeFormatter(time) {
 }
 
 export function hourFormatter(time) {
-  const seconds = Math.floor(time % 60),
-  minutes = Math.floor((time / 60) % 60),
-  hours = Math.floor((time / 3600) % 24),
-  days = Math.floor(time / (3600 * 24))
+  var seconds = Math.floor(time % 60);
+  var minutes = Math.floor((time / 60) % 60);
+  var hours = Math.floor((time / 3600) % 24);
+  var days = Math.floor(time / (3600 * 24));
 
-  let result = "";
+  var result = "";
 
   if (days > 0) result += days + "d "
   if (hours > 0) result += hours + "h "
@@ -174,6 +185,146 @@ export function hourFormatter(time) {
   if (seconds > 0) result += seconds + "s"
 
   return result;
+}
+
+export function showMetaMapFlow(id) {
+  const metadata = JSON.stringify({"id": id}),
+  url = `https://signup.getmati.com/?merchantToken=${
+    process.env.META_MAP_CLIENT_ID
+  }&flowId=${
+    process.env.META_MAP_FLOW_ID
+  }&metadata=${metadata}&redirect=${window.location.origin}/profile?success=true&target=_self`
+
+  window.open(url, '_self')
+}
+
+export function commasToDots(value) {
+  if (!value.includes(",")) return value;
+
+  let splitted = value.split(",");
+  if (splitted.length > 2) {
+    const intire = splitted[0];
+    splitted = splitted.filter((element) => element !== "" && element !== intire);
+    return `${intire},${splitted.join("")}`;
+  } else {
+    return splitted.join(".");
+  }
+}
+
+export function maxDecimals(value, max = 3) {
+  if (!value || value === '0') return 0
+  else if (Number(value) % 1 == 0) return value
+
+  const splitted = value.toString().split("."),
+    decimalsFiltered = splitted[1].substring(0, splitted[1].length > max ? max : splitted[1].length);
+
+  splitted.pop();
+  splitted.push(decimalsFiltered);
+  return parseFloat(splitted.join("."));
+}
+
+export function getDecimalSeparator(locale) {
+  const formatter = new Intl.NumberFormat(locale),
+    testNumber = 1.1,
+    formatedNumber = formatter.format(testNumber),
+    separator = formatedNumber[1];
+
+  return separator;
+}
+
+export function formatAmount(value, {
+  symbol,
+  symbolSuffixed = true,
+  currency,
+  locale = defaultLocale,
+  maxDecimals = defaultMaxDecimals,
+  minimumFractionDigits = defaultMaxDecimals,
+  compact = false,
+  removeThousandSeparator
+}) {
+  // Parse the string as a number. If parsing fails, use 0.0.
+  value = parseFloat(Number(value).toString().replace(",", "")) || 0.0;
+
+  // Use the Intl.NumberFormat API to format the value.
+  let formatter
+
+  if (compact) {
+    formatter = new Intl.NumberFormat(
+      'en-US', {
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 1,
+      notation: 'compact',
+      compactDisplay: 'short',
+    });
+  } else if (currency) {
+    formatter = new Intl.NumberFormat(
+      locale, {
+      style: 'currency',
+      currency: currency,
+      minimumFractionDigits: minimumFractionDigits,
+      maximumFractionDigits: maxDecimals,
+    });
+  } else {
+    formatter = new Intl.NumberFormat(
+      locale, {
+      minimumFractionDigits: minimumFractionDigits,
+      maximumFractionDigits: maxDecimals,
+    });
+  }
+
+  let formattedValue = formatter.format(value).trim();
+
+  if (symbol) {
+    formattedValue = formattedValue.replace(/[^0-9.,\s]+/g, symbol)
+
+    if (symbolSuffixed) {
+      formattedValue = `${formattedValue}${symbol}`
+    } else {
+      formattedValue = `${symbol}${formattedValue}`
+    }
+  }
+
+  if (removeThousandSeparator) {
+    const thousandSeparator = getDecimalSeparator(locale) === ',' ? '.' : ','
+    formattedValue = formattedValue.split(thousandSeparator).join('')
+  }
+
+  return formattedValue
+}
+
+export function unformatAmount(formattedValue, {
+  symbol,
+  locale = defaultLocale,
+  symbolSuffixed = true,
+}) {
+  if (!formattedValue) return 0
+
+  if (symbol && symbolSuffixed) {
+    formattedValue = formattedValue.slice(0, -symbol.length)
+  }
+  else if (symbol) {
+    formattedValue = formattedValue.slice(symbol.length)
+  }
+
+  if (getDecimalSeparator(locale) === ',') {
+    formattedValue = formattedValue.replaceAll('.', '')
+    formattedValue = formattedValue.replace(',', '.')
+  } else {
+    formattedValue = formattedValue.replaceAll(',', '')
+  }
+
+  return parseFloat(formattedValue)
+}
+
+export async function fileCompression(file, options) {
+  const blob = await imageCompression(file, options || {
+    maxSizeMB: 1,
+    maxWidthOrHeight: 1920,
+    useWebWorker: true,
+    initialQuality: 0.7,
+  })
+
+  return new File([blob], blob.name)
 }
 
 export function delayed(timeout, callback) {
@@ -184,4 +335,18 @@ export function delayed(timeout, callback) {
       reject(error);
     }
   });
+}
+
+/// input formatter
+export function decimalInputformatter(event, maxDecimals = defaultMaxDecimals) {
+  const input = event.target
+  let value = input.value
+
+  if (!new RegExp(`^(\\d+([.,]\\d{0,${maxDecimals}})?)?$`).test(value)) value = value.slice(0, -1)
+  value = value.split('.').join(',');
+
+  input.blur()
+  input.focus()
+
+  return value
 }
