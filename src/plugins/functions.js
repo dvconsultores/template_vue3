@@ -337,6 +337,34 @@ export function delayed(timeout, callback) {
   });
 }
 
+/// filtering input formatter
+export function filteringInputformatter(event, allowedRegExp) {
+  const input = event.target
+  let value = input.value
+
+  value = value.split('').filter(char => char.match(allowedRegExp)).join('');
+
+  input.value = value;
+  input.blur()
+  input.focus()
+
+  return value
+}
+
+/// restringed input formatter
+export function restringedInputFormatter(event, blacklist) {
+  const input = event.target;
+  let value = input.value;
+
+  value = value.split('').filter(char => !blacklist.includes(char)).join('');
+
+  input.value = value;
+  input.blur();
+  input.focus();
+
+  return value;
+}
+
 /// input formatter
 export function decimalInputformatter(event, maxDecimals = defaultMaxDecimals) {
   const input = event.target
