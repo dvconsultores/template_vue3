@@ -52,6 +52,8 @@ export default {
   },
   isProduction: process.env.NODE_ENV === 'production',
   requestInterval: 10000,
+  defaultMaxDecimals: 3,
+  defaultLocale: 'en-US',
 
   isLogged() {
     return !!useStorage().getSecureStorageSync(storageSecureCollection.tokenAuth)
